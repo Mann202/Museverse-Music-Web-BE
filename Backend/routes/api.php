@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\RolesController;
 
 /*
@@ -21,5 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post('register', [UserController::class, 'register']);
+Route::post('register', [UsersController::class, 'register']);
 Route::get('roles', [RolesController::class, 'getRole']);
