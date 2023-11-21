@@ -18,5 +18,8 @@ class Users extends Model
         'email_address',
         'email_confirmed',
         'accountTypeID',
+        'user_name',
+        'gender',
+        'country'
     ];
 }
