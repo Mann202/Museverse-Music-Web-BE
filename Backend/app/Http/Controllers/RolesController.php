@@ -7,8 +7,9 @@ use App\Models\Roles;
 
 class RolesController extends Controller
 {
-    function getRole() {
-        $role = Roles::all();
+    function getRole(Request $req) {
+        $id = $req->input("id");
+        $role = Roles::where('role_id', $id)->first();
         return $role;
     }
 }
