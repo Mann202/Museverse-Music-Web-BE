@@ -28,6 +28,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register', [UsersController::class, 'register']);
 Route::post('signin', [UsersController::class, 'signin']);
 Route::post('signup', [UsersController::class, 'signup']);
+Route::post('signingoogle', [UsersController::class, 'signingoogle']);
 Route::get('roles', [RolesController::class, 'getRole']);
 Route::post('checkrole', [UserRoleController::class, 'checkrole']);
 Route::get('getUser', [UsersController::class, 'getUser']);
