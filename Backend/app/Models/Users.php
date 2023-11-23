@@ -18,8 +18,9 @@ class Users extends Model
         'email_address',
         'email_confirmed',
         'accountTypeID',
+        'accountStatusID',
         'username',
         'password',
     ];
-    public $timestamps = false;
+    // public $timestamps = false;
 }
