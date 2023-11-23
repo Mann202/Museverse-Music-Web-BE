@@ -44,3 +44,4 @@ Route::get('getAllLikedSong', [LikedSongController::class, 'getLikedSong']);
 Route::post('saveLikedSong', [LikedSongController::class, 'saveLikedSong']);
 Route::get('getLikedSongID', [LikedSongController::class, 'getLikedSongID']);
 Route::get('unsaveSong', [LikedSongController::class, 'unsaveSong']);
+Route::get('getToken', [UsersController::class, 'getToken']);
