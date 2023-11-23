@@ -46,6 +46,7 @@ class UsersController extends Controller
         fwrite( $token_file, $result );
 
         return $result;
+    }
     function signup(Request $req)
     {
         // $user->first_name = $req->input('first_name');
@@ -99,4 +100,4 @@ class UsersController extends Controller
 
         return $user;
     }
-}}
+}
