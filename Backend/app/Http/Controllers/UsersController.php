@@ -9,9 +9,9 @@ use function Laravel\Prompts\password;
 
 class UsersController extends Controller
 {
-    function register()
-    {
-        return "API connected";
+    function getUser(Request $req) {
+        $user_id = $req->input('user_id');
+        return Users::where('user_id', $user_id)->get();
     }
     function signup(Request $req)
     {
