@@ -22,5 +22,9 @@ class Users extends Model
         'username',
         'password',
     ];
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
     // public $timestamps = false;
 }
