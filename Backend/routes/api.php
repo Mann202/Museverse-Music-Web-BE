@@ -8,6 +8,7 @@ use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\FollowedArtistsController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LikedSongController;
+use App\Http\Controllers\PlaylistsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,8 @@ Route::post('saveLikedSong', [LikedSongController::class, 'saveLikedSong']);
 Route::get('getLikedSongID', [LikedSongController::class, 'getLikedSongID']);
 Route::get('unsaveSong', [LikedSongController::class, 'unsaveSong']);
 Route::get('getToken', [UsersController::class, 'getToken']);
+
+Route::get('getPlaylistID', [PlaylistsController::class, 'getPlaylistID']);
+Route::post('createPlaylist', [PlaylistsController::class, 'createPlaylist']);
+Route::get('getPlaylist', [PlaylistsController::class, 'getPlaylist']);
+Route::post('uploadImage', [PlaylistsController::class, 'uploadImage']);
