@@ -8,7 +8,7 @@ use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\FollowedArtistsController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LikedSongController;
-
+use App\Http\Controllers\PlaylistController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -46,3 +46,10 @@ Route::post('saveLikedSong', [LikedSongController::class, 'saveLikedSong']);
 Route::get('getLikedSongID', [LikedSongController::class, 'getLikedSongID']);
 Route::get('unsaveSong', [LikedSongController::class, 'unsaveSong']);
 Route::get('getToken', [UsersController::class, 'getToken']);
+
+
+Route::group(['prefix' => 'my_playlist'], function () {
+    Route::post("/add", [PlayListController::class, 'add'])->name('users.playlists.add');
+    Route::post("/delete", [PlayListController::class, 'delete'])->name('users.playlists.delete');
+    Route::get("/allByUser/{user_id}", [PlayListController::class, 'getAllByUser'])->name('users.playlists.by_user');
+})->name('users.playlist');
