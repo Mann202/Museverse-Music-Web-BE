@@ -34,34 +34,82 @@ class PlaylistsController extends Controller
         return $userPlaylist;
     }
 
-    public function uploadImage(Request $request) {
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $user_id = $request->input('user_id'); 
-            $playlist_id = $request->input('playlist_id'); 
+    function getAllPlaylist(Request $req) {
+        $user_id = $req->input("user_id");
+
+        $userPlaylist = Playlists::where('user_id', $user_id)
+            ->get();
+
+        return $userPlaylist;
+    }
+      
+    function getImage(Request $req) {
+        $playlist_id = $req->input('id');
+        $user_id = $req->input("user_id");
+
+        return Playlists::where('user_id', $user_id)->where('id', $playlist_id)->select('picture')->first();
+    }
+
+    function addPlaylist(Request $req) {
+        $playlist_id = $req->input('id');
+        $song_id = $req->input('song_id');
+        
+        $playlist = Playlists::where('id', $playlist_id)->first();
+        
+        if ($playlist) {
+            $existing_song_ids = $playlist->song_id;
+            
+            if ($existing_song_ids && strpos($existing_song_ids, $song_id) === false) {
+                $playlist->song_id = $existing_song_ids . ',' . $song_id;
+            } elseif (!$existing_song_ids) {
+                $playlist->song_id = $song_id;
+            }
+            $playlist->save();
+        }
+    }  
     
-            // Kiểm tra xem danh sách phát có sẵn trong cơ sở dữ liệu hay không
-            $playlist = Playlists::where('user_id', $user_id)
-                ->where('id', $playlist_id)
-                ->first();
+    function changeTitle(Request $req) {
+        $playlist_id = $req->input('id');
+        $user_id = $req->input("user_id");
+        $title = $req->input('title');
+
+        $playlist = Playlists::where('id', $playlist_id)->first();
+        if($playlist) {
+            $playlist->title_playlist = $title;
+            $playlist->save();
+        }
+    }
+
+    function removeSong(Request $req) {
+        $playlist_id = $req->input('id');
+        
+        if ($req->has('song_id')) {
+            $song_id_to_remove = $req->input("song_id");
+    
+            $playlist = Playlists::where('id', $playlist_id)->first();
     
             if ($playlist) {
-                $tempPath = 'uploads/' . $image->getClientOriginalName();
+                $song_ids = explode(',', $playlist->song_id);
     
-                // Di chuyển tệp hình ảnh vào thư mục 'public'
-                $image->move('public', $tempPath);
-                $tempImagePath = 'public/' . $tempPath;
+                $updated_song_ids = array_diff($song_ids, [$song_id_to_remove]);
     
-                // Cập nhật trường 'picture' trong danh sách phát
-                $playlist->picture = $tempImagePath;
+                $playlist->song_id = implode(',', $updated_song_ids);
                 $playlist->save();
     
-                return response()->json(['message' => 'Image uploaded and playlist updated successfully'], 200);
+                return response()->json(['message' => 'Xoá bài hát thành công'], 200);
             } else {
-                return response()->json(['message' => 'Playlist not found for the given user.'], 404);
+                return response()->json(['message' => 'Không tìm thấy playlist'], 404);
             }
         } else {
-            return response()->json(['message' => 'No image file uploaded.'], 400);
+            return response()->json(['message' => 'Thiếu thông tin song_id'], 400);
         }
-    }    
+    }
+    
+    function removePlaylist(Request $req) {
+        $playlist_id = $req->input('id');
+        $playlist = Playlists::where('id', $playlist_id)->first();
+        if($playlist) {
+            $playlist->delete();
+        }
+    }
 }
