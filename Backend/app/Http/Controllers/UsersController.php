@@ -11,7 +11,8 @@ class UsersController extends Controller
 {
     private $token_url = 'https://open.spotify.com/get_access_token?reason=transport&productType=web_player';
 
-    function getUser(Request $req) {
+    function getUser(Request $req)
+    {
         $user_id = $req->input('user_id');
         return Users::where('user_id', $user_id)->get();
     }
@@ -56,9 +57,10 @@ class UsersController extends Controller
             $user = new Users;
             $user->email_address = $req->input('email');
             $user->username = $req->input('username');
-            $user->password = Hash::make($req->input('password'));
-            $user->accountTypeID = 1;      
-            $user->accountStatusID = 1;     
+            // $user->password = Hash::make($req->input('password'));
+            $user->password = $req->input('password');
+            $user->accountTypeID = 1;
+            $user->accountStatusID = 1;
             $user->save();
             return $user;
         } else {
@@ -71,8 +73,11 @@ class UsersController extends Controller
         $user = Users::where("username", $req->username)
             ->orWhere("email_address", $req->username)
             ->first();
-        if (!$user || $user->password !=  $req->password)
+        // if (!$user || !Hash::check($user->password,$req->password))
+        //     return ["error" => "Email or password is not match"];
+        if (!$user || $user->password != $req->password)
             return ["error" => "Email or password is not match"];
+
         return $user;
     }
 
@@ -85,13 +90,17 @@ class UsersController extends Controller
             $user->first_name = $req->given_name;
             $user->last_name = $req->family_name;
             $user->username = $req->given_name;
-            $user->accountTypeID = 1;      
-            $user->accountStatusID = 1;             
+            $user->accountTypeID = 1;
+            $user->accountStatusID = 1;
             $user->password = "google";
             $user->save();
             return $user;
         }
 
         return $user;
+    }
+    function allusers (Request $req)
+    {
+        return Users::all();
     }
 }
