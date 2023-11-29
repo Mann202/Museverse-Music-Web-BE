@@ -9,6 +9,7 @@ use App\Http\Controllers\FollowedArtistsController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LikedSongController;
 use App\Http\Controllers\AlbumPhysicalController;
+use App\Http\Controllers\PlaylistsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,13 @@ Route::get('unsaveSong', [LikedSongController::class, 'unsaveSong']);
 Route::get('getToken', [UsersController::class, 'getToken']);
 Route::post('getalbumphys', [AlbumPhysicalController::class, 'getalbumphys']);
 Route::post('allusers', [UsersController::class, 'allusers']);
+
+Route::get('getPlaylistID', [PlaylistsController::class, 'getPlaylistID']);
+Route::post('createPlaylist', [PlaylistsController::class, 'createPlaylist']);
+Route::get('getPlaylist', [PlaylistsController::class, 'getPlaylist']);
+Route::get('getAllPlaylist', [PlaylistsController::class, 'getAllPlaylist']);
+Route::post('addPlaylist', [PlaylistsController::class, 'addPlaylist']);
+Route::post('changeTitle', [PlaylistsController::class, 'changeTitle']);
+Route::post('removeSong', [PlaylistsController::class, 'removeSong']);
+Route::post('removePlaylist', [PlaylistsController::class, 'removePlaylist']);
+Route::get('checkSongID', [PlaylistsController::class, 'checkSongID']);

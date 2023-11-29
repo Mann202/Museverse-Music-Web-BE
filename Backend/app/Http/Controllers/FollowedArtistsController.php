@@ -13,9 +13,9 @@ class FollowedArtistsController extends Controller
             ->orderBy('follow_at', 'desc') 
             ->take(3) 
             ->get();
-    
-        return $latestFollowedArtists;
-    }
+        
+        return response()->json($latestFollowedArtists);
+    }    
 
     function saveFollowed(Request $req) {
         $user_id = $req->input('user_id'); 
