@@ -9,7 +9,12 @@ class PlaylistsController extends Controller
 {
     function getPlaylistID(Request $req) {
         $user_id = $req->input("user_id");
-        return Playlists::where('user_id', $user_id)->orderBy('created_at', 'desc')->first();
+        $playlist =  Playlists::where('user_id', $user_id)->orderBy('created_at', 'desc')->first();
+        if($playlist) {
+            return $playlist;
+        } else {
+            return null;
+        }
     }
     
     function createPlaylist(Request $req) {
@@ -78,6 +83,24 @@ class PlaylistsController extends Controller
             $playlist->title_playlist = $title;
             $playlist->save();
         }
+    }
+
+    function checkSongID(Request $req) {
+        $playlist_id = $req->input('id');
+        $song_id = $req->input("song_id");
+    
+        $playlist = Playlists::where('id', $playlist_id)->first();
+    
+        if ($playlist) {
+            $song_ids_array = explode(',', $playlist->song_id);
+            if (in_array($song_id, $song_ids_array)) {
+                return 'Yes'; 
+            } else {
+                return 'No'; 
+            }
+        }
+    
+        return 'No.'; 
     }
 
     function removeSong(Request $req) {
