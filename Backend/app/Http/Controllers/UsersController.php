@@ -92,7 +92,17 @@ class UsersController extends Controller
             $user->save();
             return $user;
         }
-
         return $user;
+    }
+
+    public function userUpdate(Request $request, string $userId)
+    {
+        $data = $request->only(['first_name', 'last_name', 'date_of_birth','contact_number']);
+        $user = Users::query()->find($userId);
+        if (empty($user)) {
+            return response()->json('Lỗi', 500);
+        }
+        $user->update($data);
+        return response()->json('Thành công');
     }
 }
