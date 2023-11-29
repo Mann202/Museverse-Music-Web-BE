@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
-
+use Illuminate\Support\Facades\Hash;
 use function Laravel\Prompts\password;
 
 class UsersController extends Controller
@@ -16,45 +16,39 @@ class UsersController extends Controller
         return Users::where('user_id', $user_id)->get();
     }
 
-    function getToken()
-    {
-        $sp_dc = 'AQAScqUqmBZ92D7gcqUSzA2oP3n6QayeUPoAiMKbeAvARZXdIjRw75ZjcF067NA1HNj9AuGoKSNtfFVNBOnNdcjpDtT-xFn21c9fsYkU46B-UGYScIO7uNd_FDDkuo4_4GKTEEvU-jhjL829EyPOR22st4opg1e_';
-        if ( !$sp_dc )
-        throw new SpotifyException( 'Please set SP_DC as a environmental variable.' );
-        $ch = curl_init();
-        curl_setopt( $ch, CURLOPT_TIMEOUT, 600 );
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 0 );
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 0 );
-        curl_setopt( $ch, CURLOPT_VERBOSE, 0 );
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt( $ch, CURLOPT_HEADER, 0 );
-        curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, false );
-        curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, 'GET' );
-        curl_setopt( $ch, CURLOPT_HTTPHEADER, array(
-            'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Safari/537.36',
-            'App-platform: WebPlayer',
-            'content-type: text/html; charset=utf-8',
-            "cookie: sp_dc=$sp_dc;"
-        ) );
-        curl_setopt($ch, CURLOPT_URL, $this->token_url);
-        $result = curl_exec( $ch );
-        $token_json = json_decode( $result, true );
-        if ( !$token_json || $token_json[ 'isAnonymous' ] )
-        throw new SpotifyException('The SP_DC set seems to be invalid, please correct it!' );
-        $token_file = fopen('.cache', 'w' ) or die( 'Unable to open file!' );
-        ;
-        fwrite( $token_file, $result );
+    // function getToken()
+    // {
+    //     $sp_dc = 'AQAScqUqmBZ92D7gcqUSzA2oP3n6QayeUPoAiMKbeAvARZXdIjRw75ZjcF067NA1HNj9AuGoKSNtfFVNBOnNdcjpDtT-xFn21c9fsYkU46B-UGYScIO7uNd_FDDkuo4_4GKTEEvU-jhjL829EyPOR22st4opg1e_';
+    //     if ( !$sp_dc )
+    //     throw new SpotifyException( 'Please set SP_DC as a environmental variable.' );
+    //     $ch = curl_init();
+    //     curl_setopt( $ch, CURLOPT_TIMEOUT, 600 );
+    //     curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 0 );
+    //     curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 0 );
+    //     curl_setopt( $ch, CURLOPT_VERBOSE, 0 );
+    //     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
+    //     curl_setopt( $ch, CURLOPT_HEADER, 0 );
+    //     curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, false );
+    //     curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, 'GET' );
+    //     curl_setopt( $ch, CURLOPT_HTTPHEADER, array(
+    //         'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Safari/537.36',
+    //         'App-platform: WebPlayer',
+    //         'content-type: text/html; charset=utf-8',
+    //         "cookie: sp_dc=$sp_dc;"
+    //     ) );
+    //     curl_setopt($ch, CURLOPT_URL, $this->token_url);
+    //     $result = curl_exec( $ch );
+    //     $token_json = json_decode( $result, true );
+    //     if ( !$token_json || $token_json[ 'isAnonymous' ] )
+    //     throw new SpotifyException('The SP_DC set seems to be invalid, please correct it!' );
+    //     $token_file = fopen('.cache', 'w' ) or die( 'Unable to open file!' );
+    //     ;
+    //     fwrite( $token_file, $result );
 
-        return $result;
-    }
+    //     return $result;
+    // }
     function signup(Request $req)
     {
-        // $user->first_name = $req->input('first_name');
-        // $user->last_name = $req->input('last_name');
-        // $user->date_of_birth = $req->input('date_of_birth');
-        // $user->contact_number = $req->input('contact_number');
-        // $user->email_confirmed = $req->input('email_confirmed');
-        // $user->accountTypeID = $req->input('accountTypeID');
         $user1 = Users::where("username", $req->username)
             ->orWhere("email_address", $req->email)
             ->first();
@@ -62,7 +56,7 @@ class UsersController extends Controller
             $user = new Users;
             $user->email_address = $req->input('email');
             $user->username = $req->input('username');
-            $user->password = $req->input('password');
+            $user->password = Hash::make($req->input('password'));
             $user->accountTypeID = 1;      
             $user->accountStatusID = 1;     
             $user->save();
