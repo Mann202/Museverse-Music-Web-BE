@@ -11,6 +11,8 @@ use App\Http\Controllers\LikedSongController;
 use App\Http\Controllers\AlbumPhysicalController;
 use App\Http\Controllers\PlaylistsController;
 
+use App\Http\Controllers\AlbumOrderController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -50,6 +52,11 @@ Route::get('unsaveSong', [LikedSongController::class, 'unsaveSong']);
 Route::get('getToken', [UsersController::class, 'getToken']);
 Route::post('getalbumphys', [AlbumPhysicalController::class, 'getalbumphys']);
 Route::post('allusers', [UsersController::class, 'allusers']);
+Route::post('checkVersion', [AlbumPhysicalController::class, 'checkVersion']);
+Route::post('addtocart', [AlbumOrderController::class, 'addtocart']);
+Route::post('loadCart', [AlbumOrderController::class, 'loadCart']);
+Route::post('deleteCart', [AlbumOrderController::class, 'deleteCart']);
+Route::post('pay', [AlbumOrderController::class, 'pay']);
 
 Route::get('getPlaylistID', [PlaylistsController::class, 'getPlaylistID']);
 Route::post('createPlaylist', [PlaylistsController::class, 'createPlaylist']);
@@ -60,3 +67,4 @@ Route::post('changeTitle', [PlaylistsController::class, 'changeTitle']);
 Route::post('removeSong', [PlaylistsController::class, 'removeSong']);
 Route::post('removePlaylist', [PlaylistsController::class, 'removePlaylist']);
 Route::get('checkSongID', [PlaylistsController::class, 'checkSongID']);
+
