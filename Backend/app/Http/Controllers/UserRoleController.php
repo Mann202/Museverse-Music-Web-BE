@@ -9,10 +9,11 @@ class UserRoleController extends Controller
 {
     function checkrole(Request $req)
     {
-        $userRole = User_Role::where("user_id", $req->user_id)->first();
+        // $userRole = User_Role::where("user_id", $req->user_id)->first();
 
-        if (!$userRole)        
-            return ["error" => "UserID does not exist"];
-        return $userRole;
+        // if (!$userRole)        
+        //     return ["error" => "UserID does not exist"];
+        // return $userRole;
+        return response()->json([]); // Trả rỗng
     }
 }

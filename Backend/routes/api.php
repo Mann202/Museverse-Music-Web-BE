@@ -68,3 +68,4 @@ Route::post('removeSong', [PlaylistsController::class, 'removeSong']);
 Route::post('removePlaylist', [PlaylistsController::class, 'removePlaylist']);
 Route::get('checkSongID', [PlaylistsController::class, 'checkSongID']);
 
+Route::post('user/{id}', [UsersController::class, 'userUpdate']);
