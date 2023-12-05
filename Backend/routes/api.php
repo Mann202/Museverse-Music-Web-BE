@@ -71,8 +71,6 @@ Route::post('removePlaylist', [PlaylistsController::class, 'removePlaylist']);
 Route::get('checkSongID', [PlaylistsController::class, 'checkSongID']);
 
 Route::post('user/{id}', [UsersController::class, 'userUpdate']);
-<<<<<<< Updated upstream
-=======
 Route::get('getOrderReport', [AlbumOrderDetailController::class, 'getOrderReport']);
 Route::get('getRevenueReport', [AlbumOrderDetailController::class, 'getRevenueReport']);
 Route::get('getNewUserCount', [UsersController::class, 'getNewUserCount']);
@@ -82,4 +80,3 @@ Route::get('getDistributorReport', [AlbumOrderDetailController::class, 'getDistr
 Route::get('getUsers', [AlbumOrderDetailController::class, 'getUsers']);
 Route::post('insertDistributor', [AlbumOrderDetailController::class, 'insertDistributor']);
 Route::post('insertUser', [AlbumOrderDetailController::class, 'insertUser']);
->>>>>>> Stashed changes
