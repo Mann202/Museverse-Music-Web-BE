@@ -80,3 +80,9 @@ Route::get('getDistributorReport', [AlbumOrderDetailController::class, 'getDistr
 Route::get('getUsers', [AlbumOrderDetailController::class, 'getUsers']);
 Route::post('insertDistributor', [AlbumOrderDetailController::class, 'insertDistributor']);
 Route::post('insertUser', [AlbumOrderDetailController::class, 'insertUser']);
+Route::get('getAlbumDistributor', [AlbumOrderDetailController::class, 'getAlbumDistributor']);
+Route::post('insertNewAlbum', [AlbumOrderDetailController::class, 'insertNewAlbum']);
+
+Route::get('getAlbum', [AlbumOrderDetailController::class, 'getAlbum']);
+Route::post('updateAlbum', [AlbumOrderDetailController::class, 'updateAlbum']);
+Route::get('deteleAlbum', [AlbumOrderDetailController::class, 'deteleAlbum']);
