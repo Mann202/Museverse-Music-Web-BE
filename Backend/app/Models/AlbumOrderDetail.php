@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AlbumOrderDetail extends Model
 {
     use HasFactory;
+<<<<<<< Updated upstream
     
     protected $primaryKey = 'detail_id';
     protected $fillable = [
@@ -16,6 +17,13 @@ class AlbumOrderDetail extends Model
         'album_physi_id',
         'order_status',
         'price',
+=======
+    protected $fillable = [
+        'detail_id',
+        'order_id',
+        'album_physi_id',
+        'variant_id',
+>>>>>>> Stashed changes
         'num',
         'total_money',
         'created_at',

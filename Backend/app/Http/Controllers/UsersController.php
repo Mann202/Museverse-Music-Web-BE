@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Users;
 use Illuminate\Support\Facades\Hash;
@@ -113,5 +114,15 @@ class UsersController extends Controller
         }
         $user->update($data);
         return response()->json('Thành công');
+    }
+
+    public function getNewUserCount(Request $req) {
+        $today = Carbon::now();
+        $trialExpires = $today->addDays(30);
+        $thirtyDaysAgo = $today->subDays(31);
+        $newUserCount = Users::where('created_at', '>=', $thirtyDaysAgo)
+                            ->count();
+
+        return $newUserCount;
     }
 }
