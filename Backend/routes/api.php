@@ -12,6 +12,7 @@ use App\Http\Controllers\AlbumPhysicalController;
 use App\Http\Controllers\PlaylistsController;
 use App\Http\Controllers\AlbumOrdersController;
 use App\Http\Controllers\AlbumOrderDetailController;
+use App\Http\Controllers\OrderController;
 
 use App\Http\Controllers\AlbumOrderController;
 
@@ -80,3 +81,13 @@ Route::get('getDistributorReport', [AlbumOrderDetailController::class, 'getDistr
 Route::get('getUsers', [AlbumOrderDetailController::class, 'getUsers']);
 Route::post('insertDistributor', [AlbumOrderDetailController::class, 'insertDistributor']);
 Route::post('insertUser', [AlbumOrderDetailController::class, 'insertUser']);
+Route::get('getAlbumDistributor', [AlbumOrderDetailController::class, 'getAlbumDistributor']);
+Route::post('insertNewAlbum', [AlbumOrderDetailController::class, 'insertNewAlbum']);
+
+Route::get('getAlbum', [AlbumOrderDetailController::class, 'getAlbum']);
+Route::post('updateAlbum', [AlbumOrderDetailController::class, 'updateAlbum']);
+Route::get('deteleAlbum', [AlbumOrderDetailController::class, 'deteleAlbum']);
+
+Route::post('/order/create', [OrderController::class, 'createOrder']);
+Route::post('updatePremium', [UsersController::class, 'updatePremium']);
+Route::post('getPaymentLinkInfoOfOrder/{id}', [OrderController::class, 'getPaymentLinkInfoOfOrder']);

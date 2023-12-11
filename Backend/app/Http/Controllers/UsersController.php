@@ -125,4 +125,12 @@ class UsersController extends Controller
 
         return $newUserCount;
     }
+
+    function updatePremium(Request $req) {
+        $user = Users::where('user_id', $req->input('user_id'))->first();
+        if($user) {
+            $user->accountTypeID = 2;
+            $user->save();
+        }
+    }
 }
