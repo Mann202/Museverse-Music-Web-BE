@@ -92,7 +92,7 @@ class AlbumOrderController extends Controller
             $order->cust_contact_number = $req->input('contact_number');
             $order->cust_address = $req->input('address');
             $order->note = $req->input('note');
-            $order->total_final = $req->input('total_final');
+            $order->total_final += $req->input('total_final');
 
             $details = $req->input('details');
             // $details = json_decode($req->input('details'), true);
