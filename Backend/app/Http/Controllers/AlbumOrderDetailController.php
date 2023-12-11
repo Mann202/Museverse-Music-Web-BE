@@ -45,9 +45,9 @@ class AlbumOrderDetailController extends Controller
     
     function getSaleReport() {
         $albumAndOrder = DB::table('album_order_details')
-            ->join('album_physical', 'album_physical.album_physi_id', '=', 'album_order_details.album_physi_id')
-            ->select('album_physical.album_physi_id', 'album_physical.album_name', 'album_physical.url_poster', DB::raw('SUM(album_order_details.total_money) as revenue'), DB::raw('SUM(album_order_details.num) as number'))
-            ->groupBy('album_physical.album_physi_id', 'album_physical.album_name', 'album_physical.url_poster')
+            ->join('album_physicals', 'album_physicals.album_physi_id', '=', 'album_order_details.album_physi_id')
+            ->select('album_physicals.album_physi_id', 'album_physicals.album_name', 'album_physicals.url_poster', DB::raw('SUM(album_order_details.total_money) as revenue'), DB::raw('SUM(album_order_details.num) as number'))
+            ->groupBy('album_physicals.album_physi_id', 'album_physicals.album_name', 'album_physicals.url_poster')
             ->orderByDesc('revenue') 
             ->take(5)
             ->get();
@@ -58,8 +58,8 @@ class AlbumOrderDetailController extends Controller
 
     function getDistributorReport() {
         $albumAndOrder = DB::table('album_order_details')
-            ->join('album_physical', 'album_physical.album_physi_id', '=', 'album_order_details.album_physi_id')
-            ->join('users', 'users.user_id', '=', 'album_physical.user_id')
+            ->join('album_physicals', 'album_physicals.album_physi_id', '=', 'album_order_details.album_physi_id')
+            ->join('users', 'users.user_id', '=', 'album_physicals.user_id')
             ->select('users.first_name', 'users.last_name', DB::raw('SUM(album_order_details.total_money) as revenue'), DB::raw('SUM(album_order_details.num) as number'))
             ->groupBy('users.first_name', 'users.last_name')
             ->orderByDesc('revenue') 
@@ -122,6 +122,68 @@ class AlbumOrderDetailController extends Controller
             return $user;
         } else {
             return ["error" => "Email or username is already existed"];
+        }
+    }
+
+    function getAlbumDistributor(Request $req) {
+        $distributorAndAlbum = DB::table('album_physicals')
+            ->join('users', 'users.user_id', '=', 'album_physicals.user_id')
+            ->select('album_physicals.album_physi_id','album_physicals.album_name', 'album_physicals.type', 'album_physicals.artist_id', 'album_physicals.quantity', 'album_physicals.description', 'album_physicals.url_poster')
+            ->where('users.user_id', $req->input('user_id'))
+            ->get();
+
+        $jsonString = json_encode($distributorAndAlbum, JSON_UNESCAPED_UNICODE);
+        return $jsonString;
+    }
+
+    function insertNewAlbum(Request $req) {
+        $album_physical = new AlbumPhysical;
+        $album_physical->album_name = $req->input('album_name');
+        $album_physical->quantity = $req->input('quantity');
+        $album_physical->type = $req->input('type');
+        $album_physical->user_id = $req->input('user_id');
+        $album_physical->min_price = $req->input('min_price');
+        $album_physical->max_price = $req->input('max_price');
+        $album_physical->description = $req->input('description');
+        $album_physical->url_poster = $req->input('url_poster');
+        $album_physical->save();
+    }
+
+    function getAlbum(Request $req) {
+        $album_physical = AlbumPhysical::where('album_physi_id', $req->input('id'))->get();
+        return $album_physical;
+    }
+
+    function updateAlbum(Request $req) {
+        $album_physical = AlbumPhysical::find($req->input('id'));
+    
+        if ($album_physical) {
+            $album_physical->album_name = $req->input('album_name');
+            $album_physical->quantity = $req->input('quantity');
+            $album_physical->type = $req->input('type');
+            $album_physical->user_id = $req->input('user_id');
+            $album_physical->min_price = $req->input('min_price');
+            $album_physical->max_price = $req->input('max_price');
+            $album_physical->description = $req->input('description');
+            $album_physical->url_poster = $req->input('url_poster');
+            $album_physical->save();
+    
+            return response()->json(['message' => 'Album updated successfully'], 200);
+        } else {
+            return response()->json(['error' => 'Album not found'], 404);
+        }
+    }
+
+    function deteleAlbum(Request $req) {
+        $id = $req->input('id');
+    
+        $album = AlbumPhysical::where('album_physi_id', $id)->first();
+    
+        if ($album) {
+            $album->delete();
+            return response()->json(['message' => 'Album deleted successfully'], 200);
+        } else {
+            return response()->json(['error' => 'Album not found'], 404);
         }
     }
 }
