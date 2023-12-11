@@ -10,6 +10,8 @@ use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LikedSongController;
 use App\Http\Controllers\AlbumPhysicalController;
 use App\Http\Controllers\PlaylistsController;
+use App\Http\Controllers\AlbumOrdersController;
+use App\Http\Controllers\AlbumOrderDetailController;
 
 use App\Http\Controllers\AlbumOrderController;
 
@@ -69,3 +71,12 @@ Route::post('removePlaylist', [PlaylistsController::class, 'removePlaylist']);
 Route::get('checkSongID', [PlaylistsController::class, 'checkSongID']);
 
 Route::post('user/{id}', [UsersController::class, 'userUpdate']);
+Route::get('getOrderReport', [AlbumOrderDetailController::class, 'getOrderReport']);
+Route::get('getRevenueReport', [AlbumOrderDetailController::class, 'getRevenueReport']);
+Route::get('getNewUserCount', [UsersController::class, 'getNewUserCount']);
+Route::get('getUsersDashboard', [AlbumOrderDetailController::class, 'getUsersDashboard']);
+Route::get('getSaleReport', [AlbumOrderDetailController::class, 'getSaleReport']);
+Route::get('getDistributorReport', [AlbumOrderDetailController::class, 'getDistributorReport']);
+Route::get('getUsers', [AlbumOrderDetailController::class, 'getUsers']);
+Route::post('insertDistributor', [AlbumOrderDetailController::class, 'insertDistributor']);
+Route::post('insertUser', [AlbumOrderDetailController::class, 'insertUser']);
