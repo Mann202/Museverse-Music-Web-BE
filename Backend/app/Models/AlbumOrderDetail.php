@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class AlbumOrderDetail extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'detail_id';
+
     protected $fillable = [
         'detail_id',
         'order_id',
@@ -16,6 +19,7 @@ class AlbumOrderDetail extends Model
         'num',
         'total_money',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'order_status'
     ];
 }

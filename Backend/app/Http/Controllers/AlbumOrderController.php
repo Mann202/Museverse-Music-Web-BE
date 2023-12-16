@@ -8,12 +8,15 @@ use App\Models\AlbumPhysical;
 use App\Models\AlbumPhysicalDetail;
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AlbumOrderController extends Controller
 {
     function addtocart(Request $req)
     {
-        $order = AlbumOrder::where("cust_id", $req->cust_id)->first();
+        $order = AlbumOrder::where("cust_id", $req->cust_id)
+            ->where('status', 1)
+            ->first();
         if (!$order) {
             $neworder = new AlbumOrder;
             $neworder->cust_id = $req->input('cust_id');
@@ -25,7 +28,11 @@ class AlbumOrderController extends Controller
             // echo "This cus already have order, move to add to cart";            
         }
 
-        $order = AlbumOrder::where("cust_id", $req->cust_id)->first();
+
+
+        $order = AlbumOrder::where("cust_id", $req->cust_id)
+            ->where('status', 1)
+            ->first();
 
         $ordetail = AlbumOrderDetail::where("order_id", $order->order_id)
             ->where("album_physi_id", $req->input('album_physi_id'))
@@ -33,7 +40,6 @@ class AlbumOrderController extends Controller
             ->whereNot("order_status", 0)
             ->first();
 
-        echo $ordetail;
         if (!$ordetail) {
             $orderdetail = new AlbumOrderDetail;
             $orderdetail->order_id = $order->order_id;
@@ -46,15 +52,73 @@ class AlbumOrderController extends Controller
             $orderdetail->save();
             return $orderdetail;
         } else {
-
             $ordetail->num += 1;
             $ordetail->total_money = $req->input('price') * $ordetail->num;
             $ordetail->save();
         }
     }
+    function createOrder(Request $req)
+    {
+        $order = AlbumOrder::where("cust_id", $req->cust_id)
+            ->where('status', 1)
+            ->first();
+        if (!$order) {
+            $neworder = new AlbumOrder;
+            $neworder->cust_id = $req->input('cust_id');
+            $neworder->status = 1;
+            $neworder->total = 0;
+
+            $neworder->save();
+        } else {
+            // echo "This cus already have order, move to add to cart";            
+        }
+
+
+
+        $order = AlbumOrder::where("cust_id", $req->cust_id)
+            ->where('status', 1)
+            ->first();
+
+        $details = $req->input('details');
+
+        $return = [];
+
+        foreach ($details as $detail) {
+            $ordetail = AlbumOrderDetail::where("order_id", $order->order_id)
+                ->where("album_physi_id", $detail['album_physi_id'])
+                ->whereNot("order_status", 0)
+                ->first();
+            
+            if (!$ordetail) {
+                $orderdetail = new AlbumOrderDetail;
+                $orderdetail->order_id = $order->order_id;
+                $orderdetail->album_physi_id = $detail['album_physi_id'];
+                if ($orderdetail->variant_name == null)
+                    $orderdetail->price = $detail['min_price'];
+                else
+                    $orderdetail->price = $detail['variant_price'];
+
+                $orderdetail->num = $detail['num'];
+                $orderdetail->order_status = 1;
+                $orderdetail->total_money = $detail['total_money'];
+
+                $orderdetail->save();
+                $return[] = $orderdetail;
+            } else {
+                $ordetail->num = $detail['num'];
+                $ordetail->total_money = $detail['total_money'];
+                $ordetail->save();
+            }
+        }
+
+        return $return;
+
+    }
     function loadCart(Request $req)
     {
-        $order = AlbumOrder::where('cust_id', $req->cust_id)->first();
+        $order = AlbumOrder::where('cust_id', $req->cust_id)
+            ->where('status', 1)
+            ->first();
         if (!$order) {
             return ["Error" => 1];
         } else {
@@ -62,7 +126,7 @@ class AlbumOrderController extends Controller
             $orders = AlbumOrderDetail::where('order_id', $order_id)
                 ->where('order_status', 1)
                 ->join('album_physicals', 'album_physicals.album_physi_id', '=', 'album_order_details.album_physi_id')
-                ->select('album_physicals.*', 'album_order_details.*' )
+                ->select('album_physicals.*', 'album_order_details.*')
                 ->get();
 
             return $orders;
@@ -83,16 +147,21 @@ class AlbumOrderController extends Controller
 
     function pay(Request $req)
     {
-        $order = AlbumOrder::where('cust_id', $req->cust_id)->first();
+        $order = AlbumOrder::where('cust_id', $req->cust_id)
+            ->where('status', 1)
+            ->first();
+
         if (!$order) {
             return ["Error" => 1];
         } else {
+            $old_order_id = $order->order_id;
             $order->cust_name = $req->input('first_name') . " " . $req->input('last_name');
             $order->cust_email = $req->input('email_address');
             $order->cust_contact_number = $req->input('contact_number');
             $order->cust_address = $req->input('address');
             $order->note = $req->input('note');
             $order->total_final += $req->input('total_final');
+            $order->status = 0;
 
             $details = $req->input('details');
             // $details = json_decode($req->input('details'), true);
@@ -107,14 +176,31 @@ class AlbumOrderController extends Controller
                 if ($albumVer) {
                     $albumVer->stock_quantity -= $item['num'];
                     $albumVer->save();
-                }else{
+                } else {
                     $album = AlbumPhysical::where('album_physi_id', $item['album_physi_id'])->first();
                     $album->quantity -= $item['num'];
                     $album->save();
                 }
-                
             }
+
             $order->save();
+
+            $neworder = new AlbumOrder;
+            $neworder->cust_id = $req->input('cust_id');
+            $neworder->status = 1;
+            $neworder->total = 0;
+
+            $neworder->save();
+
+            $norder = AlbumOrder::where("cust_id", $req->cust_id)
+                ->where('status', 1)
+                ->first();
+
+            DB::table('album_order_details')
+                ->where('order_id', $old_order_id)
+                ->where('order_status', 1)
+                ->update(['order_id' => $norder->order_id]);
+
             return $order;
         }
     }
