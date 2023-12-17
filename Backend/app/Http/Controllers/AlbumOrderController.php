@@ -170,6 +170,8 @@ class AlbumOrderController extends Controller
             foreach ($details as $item) {
                 $detail = AlbumOrderDetail::where('detail_id', $item['detail_id'])->first();
                 $detail->order_status = 0;
+                $detail->num = $item['num'];
+                $detail->total_money = $item['total_money'];
                 $detail->save();
 
                 $albumVer = AlbumPhysicalDetail::where('album_physi_id', $item['album_physi_id'])->first();
