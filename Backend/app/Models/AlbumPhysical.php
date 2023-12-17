@@ -5,15 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Album_Physical extends Model
+class AlbumPhysical extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'album_physi_id';
+    
     protected $fillable = [
         'album_physi_id',
         'album_name',
-        'created_ad',
+        'type',
+        'user_id',
+        'updated_at',
+        'created_at',
         'artist_id',
         'quantity',
-        'price'
+        'min_price',
+        'max_price',
+        'description',
+        'url_poster',
     ];
 }
