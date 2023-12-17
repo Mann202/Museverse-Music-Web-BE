@@ -69,7 +69,7 @@ Route::get('getRevenueReport', [AlbumOrderDetailController::class, 'getRevenueRe
 // Route::get('getNewUserCount', [UsersController::class, 'getNewUserCount']);
 Route::get('getUsersDashboard', [AlbumOrderDetailController::class, 'getUsersDashboard']);
 Route::get('getSaleReport', [AlbumOrderDetailController::class, 'getSaleReport']);
-Route::get('getDistributorReport', [AlbumOrderDetailController::class, 'getDistributorReport']);
+// Route::get('getDistributorReport', [AlbumOrderDetailController::class, 'getDistributorReport']);
 // Route::get('getUsers', [AlbumOrderDetailController::class, 'getUsers']);
 Route::post('insertDistributor', [AlbumOrderDetailController::class, 'insertDistributor']);
 Route::post('insertUser', [AlbumOrderDetailController::class, 'insertUser']);
