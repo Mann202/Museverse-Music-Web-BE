@@ -1,0 +1,65 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: 'nginx:stable'
+    container_name: museverse-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Backend:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - museverse
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: museverse-php
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./Backend:/var/www/html
+    networks:
+      - museverse
+
+  mysql:
+    image: mysql:8.0.29-oracle
+    container_name: museverse-mysql
+    restart: unless-stopped
+    ports:
+      - ${DB_PORT:-3307}:3306
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+      - ./dbdata:/var/lib/mysql
+    networks:
+      - museverse
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: museverse-phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOSTS: ${DB_HOST:-mysql}
+      PMA_PORT: ${DB_PORT:-3307}
+      # uncomment 2 lines under for auto-login in phpmyadmin
+      PMA_USER: ${DB_USERNAME}
+      PMA_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - museverse
+
+networks:
+  museverse:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local
