@@ -27,4 +27,8 @@ class Users extends Model
         'remember_token',
     ];
     // public $timestamps = false;
+    public function orders()
+    {
+        return $this->hasMany(AlbumOrder::class, 'cust_id', 'user_id');
+    }
 }
