@@ -8,12 +8,14 @@ use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\FollowedArtistsController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\LikedSongController;
+use App\Http\Controllers\AlbumPhysicalController;
 use App\Http\Controllers\PlaylistsController;
 use App\Http\Controllers\AlbumOrdersController;
 use App\Http\Controllers\AlbumOrderDetailController;
 use App\Http\Controllers\OrderController;
 
 use App\Http\Controllers\AlbumOrderController;
+use App\Models\AlbumPhysical;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +54,13 @@ Route::post('saveLikedSong', [LikedSongController::class, 'saveLikedSong']);
 Route::get('getLikedSongID', [LikedSongController::class, 'getLikedSongID']);
 Route::get('unsaveSong', [LikedSongController::class, 'unsaveSong']);
 Route::get('getToken', [UsersController::class, 'getToken']);
+Route::post('getalbumphys', [AlbumPhysicalController::class, 'getalbumphys']);
+Route::post('allusers', [UsersController::class, 'allusers']);
+Route::post('checkVersion', [AlbumPhysicalController::class, 'checkVersion']);
+Route::post('addtocart', [AlbumOrderController::class, 'addtocart']);
+Route::post('loadCart', [AlbumOrderController::class, 'loadCart']);
+Route::post('deleteCart', [AlbumOrderController::class, 'deleteCart']);
+Route::post('pay', [AlbumOrderController::class, 'pay']);
 
 Route::get('getPlaylistID', [PlaylistsController::class, 'getPlaylistID']);
 Route::post('createPlaylist', [PlaylistsController::class, 'createPlaylist']);
@@ -79,6 +88,16 @@ Route::post('insertNewAlbum', [AlbumOrderDetailController::class, 'insertNewAlbu
 Route::get('getAlbum', [AlbumOrderDetailController::class, 'getAlbum']);
 Route::post('updateAlbum', [AlbumOrderDetailController::class, 'updateAlbum']);
 Route::get('deteleAlbum', [AlbumOrderDetailController::class, 'deteleAlbum']);
+
+Route::post('getUserOrder', [AlbumOrderDetailController::class, 'getUserOrder']);
+Route::post('deleteUserOrder', [AlbumOrderDetailController::class, 'deleteUserOrder']);
+Route::post('getOrderDetail', [AlbumOrderDetailController::class, 'getOrderDetail']);
+Route::post('getDistributorAlbum', [AlbumPhysicalController::class, 'getDistributorAlbum']);
+Route::post('searchCusEmail', [UsersController::class, 'searchCusEmail']);
+Route::post('checkCustomer', [UsersController::class, 'checkCustomer']);
+Route::post('createOrder', [AlbumOrderController::class, 'createOrder']);
+
+
 
 Route::post('/order/create', [OrderController::class, 'createOrder']);
 Route::post('updatePremium', [UsersController::class, 'updatePremium']);
