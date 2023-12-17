@@ -27,4 +27,13 @@ class Users extends Model
         'remember_token',
     ];
     // public $timestamps = false;
+    public function accountStatus(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(AccountStatus::class, 'accountStatusID', 'account_status_id');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(AlbumOrder::class, 'cust_id', 'user_id');
+    }
 }

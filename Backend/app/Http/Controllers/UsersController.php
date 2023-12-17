@@ -123,4 +123,20 @@ class UsersController extends Controller
             $user->save();
         }
     }
+
+    public function getUserList(): \Illuminate\Http\JsonResponse
+    {
+        $user = Users::query()
+            ->with(['accountStatus', 'orders'])
+            ->whereNotIn('accountTypeID', [3, 4])
+            ->get();
+        $user = $user->transform(function ($item) {
+            $item->account_status = $item->accountStatus->status;
+            $item->spend = $item->orders->sum('total_final');
+            unset($item->accountStatus);
+            unset($item->orders);
+            return $item;
+        })->toArray();
+        return response()->json($user);
+    }
 }

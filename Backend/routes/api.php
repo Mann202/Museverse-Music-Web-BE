@@ -64,13 +64,13 @@ Route::post('removePlaylist', [PlaylistsController::class, 'removePlaylist']);
 Route::get('checkSongID', [PlaylistsController::class, 'checkSongID']);
 
 Route::post('user/{id}', [UsersController::class, 'userUpdate']);
-Route::get('getOrderReport', [AlbumOrderDetailController::class, 'getOrderReport']);
+// Route::get('getOrderReport', [AlbumOrderDetailController::class, 'getOrderReport']);
 Route::get('getRevenueReport', [AlbumOrderDetailController::class, 'getRevenueReport']);
-Route::get('getNewUserCount', [UsersController::class, 'getNewUserCount']);
+// Route::get('getNewUserCount', [UsersController::class, 'getNewUserCount']);
 Route::get('getUsersDashboard', [AlbumOrderDetailController::class, 'getUsersDashboard']);
 Route::get('getSaleReport', [AlbumOrderDetailController::class, 'getSaleReport']);
 Route::get('getDistributorReport', [AlbumOrderDetailController::class, 'getDistributorReport']);
-Route::get('getUsers', [AlbumOrderDetailController::class, 'getUsers']);
+// Route::get('getUsers', [AlbumOrderDetailController::class, 'getUsers']);
 Route::post('insertDistributor', [AlbumOrderDetailController::class, 'insertDistributor']);
 Route::post('insertUser', [AlbumOrderDetailController::class, 'insertUser']);
 Route::get('getAlbumDistributor', [AlbumOrderDetailController::class, 'getAlbumDistributor']);
@@ -83,3 +83,8 @@ Route::get('deteleAlbum', [AlbumOrderDetailController::class, 'deteleAlbum']);
 Route::post('/order/create', [OrderController::class, 'createOrder']);
 Route::post('updatePremium', [UsersController::class, 'updatePremium']);
 Route::post('getPaymentLinkInfoOfOrder/{id}', [OrderController::class, 'getPaymentLinkInfoOfOrder']);
+
+Route::get('user/list', [UsersController::class, 'getUserList']); // API get list user
+Route::get('report/overview', [\App\Http\Controllers\ReportController::class, 'overview']); // API Tổng tiền
+Route::get('report/user', [\App\Http\Controllers\ReportController::class, 'reportUser']); //API Chart
+Route::get('report/user-top', [\App\Http\Controllers\ReportController::class, 'getTopUserList']);// Top 10
