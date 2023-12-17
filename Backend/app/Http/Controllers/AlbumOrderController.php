@@ -50,11 +50,12 @@ class AlbumOrderController extends Controller
             $orderdetail->total_money = $req->input('price') * $req->input('num');
 
             $orderdetail->save();
-            return $orderdetail;
+            return ["message" => "Add to cart successfully!"];
         } else {
             $ordetail->num += 1;
             $ordetail->total_money = $req->input('price') * $ordetail->num;
             $ordetail->save();
+            return ["message" => "This album is already added to cart!"];
         }
     }
     function createOrder(Request $req)
