@@ -10,17 +10,17 @@ class Users extends Model
     use HasFactory;
     protected $primaryKey = "user_id";
     protected $fillable = [
-        'user_id',
+        // 'user_id',
         'first_name',
         'last_name',
         'date_of_birth',
         'contact_number',
-        'email_address',
-        'email_confirmed',
-        'accountTypeID',
-        'accountStatusID',
-        'username',
-        'password',
+        // 'email_address',
+        // 'email_confirmed',
+        // 'accountTypeID',
+        // 'accountStatusID',
+        // 'username',
+        // 'password',
     ];
     protected $hidden = [
         'password',
