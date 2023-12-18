@@ -46,7 +46,7 @@ services:
     image: phpmyadmin/phpmyadmin:latest
     container_name: museverse-phpmyadmin
     ports:
-      - "8081:80"
+      - "8088:80"
     environment:
       PMA_HOSTS: ${DB_HOST:-mysql}
       PMA_PORT: ${DB_PORT:-3307}
