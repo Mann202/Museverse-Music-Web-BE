@@ -96,8 +96,7 @@ Route::post('getDistributorAlbum', [AlbumPhysicalController::class, 'getDistribu
 Route::post('searchCusEmail', [UsersController::class, 'searchCusEmail']);
 Route::post('checkCustomer', [UsersController::class, 'checkCustomer']);
 Route::post('createOrder', [AlbumOrderController::class, 'createOrder']);
-
-
+Route::post('deleteOrderDuplicate', [AlbumOrderController::class, 'deleteOrderDuplicate']);
 
 Route::post('/order/create', [OrderController::class, 'createOrder']);
 Route::post('updatePremium', [UsersController::class, 'updatePremium']);

@@ -89,7 +89,7 @@ class AlbumOrderController extends Controller
                 ->where("album_physi_id", $detail['album_physi_id'])
                 ->whereNot("order_status", 0)
                 ->first();
-            
+
             if (!$ordetail) {
                 $orderdetail = new AlbumOrderDetail;
                 $orderdetail->order_id = $order->order_id;
@@ -113,7 +113,6 @@ class AlbumOrderController extends Controller
         }
 
         return $return;
-
     }
     function loadCart(Request $req)
     {
@@ -145,7 +144,23 @@ class AlbumOrderController extends Controller
         return $deletedRows; // Trả về số lượng dòng đã bị xóa
 
     }
-    
+    function deleteOrderDuplicate()
+    {
+        $ordersToDelete = DB::table('album_orders as a')
+            ->whereNotIn('a.order_id', function ($query) {
+                $query->select('a.order_id')
+                    ->from('album_orders as a')
+                    ->join('album_order_details as b', 'a.order_id', '=', 'b.order_id');
+            })
+            ->pluck('a.order_id')
+            ->toArray();
+
+        $deletedRows = DB::table('album_orders')
+            ->whereIn('order_id', $ordersToDelete)
+            ->delete();
+
+        return $deletedRows;
+    }
     function pay(Request $req)
     {
         $order = AlbumOrder::where('cust_id', $req->cust_id)
@@ -165,7 +180,6 @@ class AlbumOrderController extends Controller
             $order->status = 0;
 
             $details = $req->input('details');
-            // $details = json_decode($req->input('details'), true);
 
 
             foreach ($details as $item) {
@@ -204,6 +218,7 @@ class AlbumOrderController extends Controller
                 ->where('order_status', 1)
                 ->update(['order_id' => $norder->order_id]);
 
+            $this->deleteOrderDuplicate();
             return $order;
         }
     }
