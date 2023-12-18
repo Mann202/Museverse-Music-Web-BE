@@ -36,10 +36,10 @@ RUN curl https://curl.se/ca/cacert.pem --output /usr/local/share/ca-certificates
 RUN update-ca-certificates
 
 # Copy existing application directory contents
-COPY ./Backend /var/www/html
+COPY --chown=www-data:www-data ./Backend /var/www/html
 
 # Copy existing application directory permissions
 # COPY --chown=www:www ./Backend /var/www/html
 
 # Change current user to www
-# USER www
+USER www-data
