@@ -145,7 +145,7 @@ class AlbumOrderController extends Controller
         return $deletedRows; // Trả về số lượng dòng đã bị xóa
 
     }
-
+    
     function pay(Request $req)
     {
         $order = AlbumOrder::where('cust_id', $req->cust_id)
@@ -153,7 +153,7 @@ class AlbumOrderController extends Controller
             ->first();
 
         if (!$order) {
-            return ["Error" => 1];
+            return ["Error" => "Order not found!"];
         } else {
             $old_order_id = $order->order_id;
             $order->cust_name = $req->input('first_name') . " " . $req->input('last_name');
