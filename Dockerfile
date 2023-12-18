@@ -27,10 +27,22 @@ RUN docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl
 # COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Add user for laravel application
+RUN groupadd -g 1000 www
+RUN useradd -u 1000 -ms /bin/bash -g www www
+
 # Install ssl certificate for PHP curl requests
 RUN  apk add ca-certificates && rm -rf /var/cache/apk/*
 RUN curl https://curl.se/ca/cacert.pem --output /usr/local/share/ca-certificates/cacert.pem
 RUN update-ca-certificates
 
+# Copy existing application directory contents
+COPY ./Backend /var/www
+COPY ./.env /var/www/.env
+
+# Copy existing application directory permissions
 COPY --chown=www:www ./Backend /var/www
 COPY --chown=www:www ./.env /var/www/.env
+
+# Change current user to www
+USER www
