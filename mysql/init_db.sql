@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 06, 2023 at 04:26 PM
+-- Host: 127.0.0.1:3307
+-- Generation Time: Dec 20, 2023 at 06:04 AM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `museverse`
+-- Database: `museverse1`
 --
 
 -- --------------------------------------------------------
@@ -109,28 +109,14 @@ CREATE TABLE `album_orders` (
 --
 
 INSERT INTO `album_orders` (`order_id`, `cust_name`, `cust_email`, `cust_contact_number`, `cust_address`, `cust_id`, `note`, `status`, `total`, `created_at`, `updated_at`, `total_final`) VALUES
-(3, 'Lê Xuân Quỳnh', 'xuanquynh@example.com', '0123456789', '264C Pasteur, phường Võ Thị Sáu, quận 3, Thành phố Hồ Chí Minh', 5, 'Giao giờ hành chính', 0, 7650000, '2023-12-03 01:40:29', '2023-12-06 13:15:59', 7650000),
-(5, 'Anh Thư', 'nguyenvana@example.com', '0123456789', '26 Điện Biên Phủ, hẻm 2, Khu phố Ninh Phước, phường Ninh Thạnh, tỉnh Tây Ninh', 7, '', 0, 2400000, '2022-12-31 20:00:00', '2023-12-06 13:15:59', 2400000),
-(6, 'Phạm Mến', 'phammen@example.com', '0936764625', 'Khu Phú Tảo, phường Thạch Khôi, TP. Hải Dương', 8, '', 0, 5500000, '2022-12-31 20:00:00', '2023-12-06 13:15:59', 5500000),
-(7, 'Nguyễn Thị Thắm', 'nguyenthitham@example.com', '0966318670', 'Nhà số 3, xóm 4, Yên Thái, Tiền Yên, Hoài Đức, Hà Nội', 9, '', 0, 1450000, '2022-12-31 20:00:00', '2023-12-06 13:15:59', 1450000),
-(8, 'Dương Vương Hy', 'duongvuonghy@example.com', '0907322823', 'Ấp Tân Bảnh, xã Tân Phước, huyện Tân Hồng, Đồng Tháp', 10, '', 0, 1000000, '2022-12-31 20:00:00', '2023-12-06 13:15:59', 1000000),
-(9, 'Giang Nghi', 'giangnghi@example.com', '0343980618', '40/5 đường số 27, Sơn Kỳ, Tân Phú, TP.HCM', 11, '', 0, 1200000, '2022-12-31 20:00:00', '2023-12-03 02:08:22', 1200000),
-(10, 'Ngọc Trâm', 'ngoctram@example.com', '0925490736', '158/37 Lãnh Binh Thái, Thị trấn Cần Giuộc, Huyện Cần Giuộc, Tỉnh Long An', 12, '', 0, 1990000, '2022-12-31 20:00:00', '2023-12-06 13:15:59', 1990000),
-(11, 'Minh Tuyền', 'minhtuyen@example.com', '0949899419', '336 Nguyễn Tri Phương p4 Q10 TPHCM', 13, '', 0, 300000, '2022-12-31 20:00:00', '2023-12-03 02:08:22', 300000),
-(12, 'Nguyễn Đoàn Kim Ngân', 'nguyendoankimngan@example.com', '0971263308', '125 đường cày, tổ 20, ấp 2, Xuân Hòa, Xuân Lộc, Đồng Nai', 11, '', 0, 2200000, '2022-12-31 20:00:00', '2023-12-06 13:15:59', 2200000),
-(13, 'Quỳnh Như', 'quynhnhu@example.com', '0868752758', '45/1, tổ 1, khu A, đường Nguyễn Thị Minh Khai, hẻm 818, kp Tân Thắng, phường Tân Bình, thành phố Dĩ An, Bình Dương', 15, '', 0, 2600000, '2022-12-31 20:00:00', '2023-12-06 13:15:59', 2600000),
-(14, 'Mon Mon', 'monmon@example.com', '0938491705', '59 Võ Như Hưng, quận Ngũ Hành Sơn, TP Đà Nẵng', 17, '', 0, 4480000, '2022-12-31 20:00:00', '2023-12-06 13:15:59', 4480000),
-(3, 'Lê Xuân Quỳnh', 'xuanquynh@example.com', '0123456789', '264C Pasteur, phường Võ Thị Sáu, quận 3, Thành phố Hồ Chí Minh', 5, 'Giao giờ hành chính', 0, 7650000, '2023-12-03 08:40:29', '2023-12-06 13:15:59', 7650000),
-(5, 'Anh Thư', 'nguyenvana@example.com', '0123456789', '26 Điện Biên Phủ, hẻm 2, Khu phố Ninh Phước, phường Ninh Thạnh, tỉnh Tây Ninh', 7, '', 0, 2400000, '2023-01-01 03:00:00', '2023-12-06 13:15:59', 2400000),
-(6, 'Phạm Mến', 'phammen@example.com', '0936764625', 'Khu Phú Tảo, phường Thạch Khôi, TP. Hải Dương', 8, '', 0, 5500000, '2023-01-01 03:00:00', '2023-12-06 13:15:59', 5500000),
-(7, 'Nguyễn Thị Thắm', 'nguyenthitham@example.com', '0966318670', 'Nhà số 3, xóm 4, Yên Thái, Tiền Yên, Hoài Đức, Hà Nội', 9, '', 0, 1450000, '2023-01-01 03:00:00', '2023-12-06 13:15:59', 1450000),
-(8, 'Dương Vương Hy', 'duongvuonghy@example.com', '0907322823', 'Ấp Tân Bảnh, xã Tân Phước, huyện Tân Hồng, Đồng Tháp', 10, '', 0, 1000000, '2023-01-01 03:00:00', '2023-12-06 13:15:59', 1000000),
-(9, 'Giang Nghi', 'giangnghi@example.com', '0343980618', '40/5 đường số 27, Sơn Kỳ, Tân Phú, TP.HCM', 11, '', 0, 1200000, '2023-01-01 03:00:00', '2023-12-03 09:08:22', 1200000),
-(10, 'Ngọc Trâm', 'ngoctram@example.com', '0925490736', '158/37 Lãnh Binh Thái, Thị trấn Cần Giuộc, Huyện Cần Giuộc, Tỉnh Long An', 12, '', 0, 1990000, '2023-01-01 03:00:00', '2023-12-06 13:15:59', 1990000),
-(11, 'Minh Tuyền', 'minhtuyen@example.com', '0949899419', '336 Nguyễn Tri Phương p4 Q10 TPHCM', 13, '', 0, 300000, '2023-01-01 03:00:00', '2023-12-03 09:08:22', 300000),
-(12, 'Nguyễn Đoàn Kim Ngân', 'nguyendoankimngan@example.com', '0971263308', '125 đường cày, tổ 20, ấp 2, Xuân Hòa, Xuân Lộc, Đồng Nai', 11, '', 0, 2200000, '2023-01-01 03:00:00', '2023-12-06 13:15:59', 2200000),
-(13, 'Quỳnh Như', 'quynhnhu@example.com', '0868752758', '45/1, tổ 1, khu A, đường Nguyễn Thị Minh Khai, hẻm 818, kp Tân Thắng, phường Tân Bình, thành phố Dĩ An, Bình Dương', 15, '', 0, 2600000, '2023-01-01 03:00:00', '2023-12-06 13:15:59', 2600000),
-(14, 'Mon Mon', 'monmon@example.com', '0938491705', '59 Võ Như Hưng, quận Ngũ Hành Sơn, TP Đà Nẵng', 17, '', 0, 4480000, '2023-01-01 03:00:00', '2023-12-06 13:15:59', 4480000);
+(39, 'Nguyên Nguyễn', 'nbnguyen1100@gmail.com', '0123456', 'Xã Tô Mậu, Huyện Lục Yên, Tỉnh Yên Bái', 3, NULL, 0, 0, '2023-12-12 03:32:10', '2023-12-12 03:32:27', 300000),
+(40, 'Nguyên Nguyễn', 'nbnguyen1100@gmail.com', '0987657', 'Xã Phú Xá, Huyện Cao Lộc, Tỉnh Lạng Sơn', 3, NULL, 0, 0, '2023-12-12 03:32:27', '2023-12-12 03:33:01', 1150000),
+(70, 'Nguyen00 Binh', 'nguyen00@gmail.com', '0123456789', 'Xã Xương Thịnh, Huyện Cẩm Khê, Tỉnh Phú Thọ', 8, NULL, 0, 0, '2023-12-12 14:02:23', '2023-12-12 14:04:42', 450000),
+(71, NULL, NULL, NULL, NULL, 8, NULL, 1, 0, '2023-12-12 14:04:42', '2023-12-12 14:04:42', NULL),
+(75, 'Nguyên Nguyễn', 'nbnguyen1100@gmail.com', '0123456789', 'Xã Quảng Thành, Huyện Hải Hà, Tỉnh Quảng Ninh', 3, NULL, 0, 0, '2023-12-17 05:13:38', '2023-12-17 05:13:51', 2300000),
+(76, 'Nguyên Nguyễn', 'nbnguyen1100@gmail.com', '0123456789', 'Xã Lệ Viễn, Huyện Sơn Động, Tỉnh Bắc Giang', 3, NULL, 0, 300000, '2023-12-17 05:13:51', '2023-12-17 05:14:56', 1150000),
+(77, NULL, NULL, NULL, NULL, 3, NULL, 1, 300000, '2023-12-17 05:14:56', '2023-12-17 05:14:56', NULL),
+(79, NULL, NULL, NULL, NULL, 2, NULL, 1, 5782000, '2023-12-17 12:02:53', '2023-12-18 08:31:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -146,44 +132,25 @@ CREATE TABLE `album_order_details` (
   `num` int(11) NOT NULL,
   `total_money` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `order_status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `album_order_details`
 --
 
-INSERT INTO `album_order_details` (`detail_id`, `order_id`, `album_physi_id`, `price`, `num`, `total_money`, `created_at`, `updated_at`) VALUES
-(1, 3, 76, 1150000, 2, 2300000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(2, 3, 76, 1150000, 2, 2300000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(3, 3, 77, 300000, 1, 300000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(4, 5, 78, 350000, 3, 1050000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(5, 5, 79, 300000, 2, 600000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(6, 5, 80, 750000, 1, 750000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(7, 6, 81, 750000, 4, 3000000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(8, 6, 82, 1250000, 2, 2500000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(9, 7, 83, 350000, 1, 350000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(10, 7, 84, 350000, 1, 350000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(11, 7, 85, 250000, 3, 750000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(12, 8, 86, 350000, 2, 700000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(13, 8, 87, 300000, 1, 300000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(14, 9, 88, 300000, 4, 1200000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(15, 10, 89, 370000, 2, 740000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(16, 10, 90, 350000, 1, 350000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(17, 10, 91, 300000, 3, 900000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(18, 11, 92, 300000, 1, 300000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(19, 12, 93, 500000, 2, 1000000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(20, 12, 94, 480000, 1, 480000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(21, 12, 95, 240000, 3, 720000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(22, 13, 96, 300000, 4, 1200000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(23, 13, 97, 700000, 2, 1400000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(24, 14, 98, 800000, 1, 800000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(25, 14, 99, 680000, 1, 680000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(26, 14, 100, 1000000, 3, 3000000, '2023-12-02 19:08:22', '2023-12-02 19:08:22'),
-(27, 3, 107, 450000, 2, 900000, '2023-12-02 19:09:35', '2023-12-02 19:09:35'),
-(28, 3, 107, 450000, 1, 450000, '2023-12-02 19:09:35', '2023-12-02 19:09:35'),
-(29, 3, 107, 350000, 1, 350000, '2023-12-02 19:09:35', '2023-12-02 19:09:35'),
-(30, 3, 107, 350000, 3, 1050000, '2023-12-02 19:09:35', '2023-12-02 19:09:35');
+INSERT INTO `album_order_details` (`detail_id`, `order_id`, `album_physi_id`, `price`, `num`, `total_money`, `created_at`, `updated_at`, `order_status`) VALUES
+(97, 39, 77, 300000, 1, 300000, '2023-12-12 03:32:10', '2023-12-12 03:32:27', 0),
+(98, 40, 76, 1150000, 1, 1150000, '2023-12-12 03:32:42', '2023-12-12 03:33:01', 0),
+(144, 70, 107, 350000, 1, 450000, '2023-12-12 14:04:39', '2023-12-12 14:04:42', 0),
+(151, 75, 76, 1150000, 2, 2300000, '2023-12-17 05:13:38', '2023-12-17 05:13:51', 0),
+(152, 77, 77, 300000, 1, 300000, '2023-12-17 05:14:27', '2023-12-17 05:14:56', 1),
+(153, 76, 107, 450000, 1, 450000, '2023-12-17 05:14:38', '2023-12-17 05:14:56', 0),
+(154, 76, 107, 350000, 2, 700000, '2023-12-17 05:14:41', '2023-12-17 05:14:56', 0),
+(155, 79, 76, 1150000, 5, 5750000, '2023-12-17 12:02:53', '2023-12-17 12:02:55', 1),
+(156, 79, 78, 2000, 1, 2000, '2023-12-17 12:30:18', '2023-12-17 12:30:18', 1),
+(157, 79, 78, 10000, 3, 30000, '2023-12-17 12:54:57', '2023-12-18 08:31:51', 1);
 
 --
 -- Triggers `album_order_details`
@@ -197,7 +164,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `insert_total` AFTER INSERT ON `album_order_details` FOR EACH ROW BEGIN
   DECLARE total_m INT;
-  SET total_m = (SELECT SUM(total_money) FROM album_order_details WHERE order_id = NEW.order_id);
+  SET total_m = (SELECT SUM(total_money) FROM album_order_details WHERE order_id = NEW.order_id and order_status=1);
   UPDATE album_orders SET total = total_m WHERE order_id = NEW.order_id;
 END
 $$
@@ -205,7 +172,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `update_total` AFTER UPDATE ON `album_order_details` FOR EACH ROW BEGIN
   DECLARE total_m INT;
-  SET total_m = (SELECT SUM(total_money) FROM album_order_details WHERE order_id = NEW.order_id);
+  SET total_m = (SELECT SUM(total_money) FROM album_order_details WHERE order_id = NEW.order_id and order_status=1);
   UPDATE album_orders SET total = total_m WHERE order_id = NEW.order_id;
 END
 $$
@@ -237,14 +204,14 @@ CREATE TABLE `album_physicals` (
 --
 
 INSERT INTO `album_physicals` (`album_physi_id`, `album_name`, `type`, `user_id`, `created_at`, `updated_at`, `artist_id`, `quantity`, `min_price`, `max_price`, `description`, `url_poster`) VALUES
-(76, 'PRINCE - THE HITS 1 ', 'Đĩa than', 1, '2023-11-27 12:03:37', '2023-12-03 01:13:15', '5a2EaR3hamoenG9rDuVn8j\r\n', 147, 1150000, 1150000, 'Prince - The Hits 1 (Vinyl 2LP) - Đĩa Than - Băng Đĩa Nhạc Quốc Tế - Hãng Đĩa Thời Đại (Times Records) ⭕️ LP Store / Record Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/prince-the-hits-1-vinyl-2lp-dia-than_1c763c2830c34684bc365089f83e3e68_grande.jpg'),
-(77, 'MÈOW LẠC - SUGAR RUSH (THE 2ND ALBUM) ', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-11-27 13:05:19', '1984OVQ0KnJW80MiZYOrFF\r\n', 123, 300000, 300000, 'Mèow Lạc - Sugar Rush (The 2nd Album) - Đĩa CD - Hãng Đĩa Thời Đại (Times Records)  ⭕️ CD Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/20231119_meow-lac_sugar_rush-mock_up_29c31a8e2c8d47b1a3329d6f1e29d19a_grande.png'),
-(78, 'GIÁNG SON - SING MY SOL ', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-11-27 13:03:36', '15YEEmU7WkJL0FYMIBXUbd\r\n', 300, 350000, 350000, 'Giáng Son - Sing My Sol - Đĩa CD - Hãng Đĩa Thời Đại (Times Records)  ⭕️ CD Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/mockup_db143848b3fb4636a748d1eb3aacab9a_grande.jpeg'),
+(76, 'PRINCE - THE HITS 1', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-12-17 05:13:51', '5a2EaR3hamoenG9rDuVn8j\r\n', 116, 1150000, 1150000, 'Prince - The Hits 1 (Vinyl 2LP) - Đĩa Than - Băng Đĩa Nhạc Quốc Tế - Hãng Đĩa Thời Đại (Times Records) ⭕️ LP Store / Record Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/prince-the-hits-1-vinyl-2lp-dia-than_1c763c2830c34684bc365089f83e3e68_grande.jpg'),
+(77, 'MÈOW LẠC - SUGAR RUSH (THE 2ND ALBUM) ', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-12-12 03:32:27', '1984OVQ0KnJW80MiZYOrFF\r\n', 117, 300000, 300000, 'Mèow Lạc - Sugar Rush (The 2nd Album) - Đĩa CD - Hãng Đĩa Thời Đại (Times Records)  ⭕️ CD Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/20231119_meow-lac_sugar_rush-mock_up_29c31a8e2c8d47b1a3329d6f1e29d19a_grande.png'),
+(78, 'GIÁNG SON - SING MY SOL', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-12-17 12:54:23', '15YEEmU7WkJL0FYMIBXUbd\r\n', 297, 10000, 10000, 'Giáng Son - Sing My Sol - Đĩa CD - Hãng Đĩa Thời Đại (Times Records)  ⭕️ CD Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/mockup_db143848b3fb4636a748d1eb3aacab9a_grande.jpeg'),
 (79, 'PHẠM HOÀI NAM - NGƯỜI GIỮ KÝ ỨC ', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-11-27 13:03:23', '1E6UYLIV5yRqnF1FFM97g3\r\n', 111, 300000, 300000, 'Phạm Hoài Nam - Người Giữ Ký Ức - Đĩa CD - Hãng Đĩa Thời Đại (Times Records)  ⭕️ CD Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038. Dự kiến sẽ phát hành vào 14/11/2023.', 'https://product.hstatic.net/1000304920/product/nguoigiukyuc_bd73ab0ce8634f75affa319c2185b569_grande.jpeg'),
-(80, 'THE KILLERS - WONDERFUL WONDERFUL  ', 'Đĩa than', 1, '2023-11-27 12:03:37', '2023-11-27 13:03:12', '0C0XlULifJtAgn6ZNCW2eu\r\n', 100, 750000, 750000, 'The Killers - Wonderful Wonderful (Vinyl LP) - Đĩa than - Đĩa Than Nhạc US-UK - Hãng Đĩa Thời Đại (Times Records) ⭕️ Saigon Vinyl Records Store in Vietnam / LP Store  ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/the-killers-wonderful-wonderful-lp_1024x1024_b1207d92521a4b788e2f8ab5eff99cf5_grande.jpg'),
-(81, 'ARCA - KICK IIII ', 'Đĩa than', 1, '2023-11-27 12:03:37', '2023-11-27 13:02:57', '4SQdUpG4f7UbkJG3cJ2Iyj\r\n', 123, 750000, 750000, 'Arca - kick iiii (Vinyl LP) - Đĩa Than - Băng Đĩa Nhạc Quốc Tế - Hãng Đĩa Thời Đại (Times Records) ⭕️ LP Store / Record Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/arca-kick-iiii-vinyl-lp-dia-than_b7d3e54a13874173bbddd413f3b4e9df_grande.jpg'),
-(82, 'MAC MILLER - CIRCLES ', 'Đĩa than', 1, '2023-11-27 12:03:37', '2023-11-27 13:02:43', '3e7awlrlDSwF3iM0WBjGMp\r\n', 250, 1250000, 1250000, 'Mac Miller - Circles (Vinyl 2LP) - Đĩa Than - Băng Đĩa Nhạc Quốc Tế - Hãng Đĩa Thời Đại (Times Records) ⭕️ LP Store / Record Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/mac-miller-circles-vinyl-2lp-dia-than_ed6c462f3024466b90fcb04761df4ce0_grande.jpg'),
-(83, 'LITTLE MIX - LM5 ', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-11-27 13:02:05', '3e7awlrlDSwF3iM0WBjGMp\r\n', 200, 350000, 350000, 'Little Mix - LM5 - Đĩa CD - Hãng Đĩa Thời Đại (Times Records) - Cửa hàng băng đĩa gốc nhạc quốc tế ⭕️ CD Store in Saigon  ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/little-mix-lm5-dia-cd_353685b38bd04d7f98f3282c5f9ee001_grande.jpeg'),
+(80, 'THE KILLERS - WONDERFUL WONDERFUL  ', 'Đĩa than', 1, '2023-11-27 12:03:37', '2023-12-12 13:41:00', '0C0XlULifJtAgn6ZNCW2eu\r\n', 93, 750000, 750000, 'The Killers - Wonderful Wonderful (Vinyl LP) - Đĩa than - Đĩa Than Nhạc US-UK - Hãng Đĩa Thời Đại (Times Records) ⭕️ Saigon Vinyl Records Store in Vietnam / LP Store  ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/the-killers-wonderful-wonderful-lp_1024x1024_b1207d92521a4b788e2f8ab5eff99cf5_grande.jpg'),
+(81, 'ARCA - KICK IIII ', 'Đĩa than', 1, '2023-11-27 12:03:37', '2023-12-12 13:22:09', '4SQdUpG4f7UbkJG3cJ2Iyj\r\n', 120, 750000, 750000, 'Arca - kick iiii (Vinyl LP) - Đĩa Than - Băng Đĩa Nhạc Quốc Tế - Hãng Đĩa Thời Đại (Times Records) ⭕️ LP Store / Record Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/arca-kick-iiii-vinyl-lp-dia-than_b7d3e54a13874173bbddd413f3b4e9df_grande.jpg'),
+(82, 'MAC MILLER - CIRCLES ', 'Đĩa than', 1, '2023-11-27 12:03:37', '2023-12-12 13:59:59', '3e7awlrlDSwF3iM0WBjGMp\r\n', 247, 1250000, 1250000, 'Mac Miller - Circles (Vinyl 2LP) - Đĩa Than - Băng Đĩa Nhạc Quốc Tế - Hãng Đĩa Thời Đại (Times Records) ⭕️ LP Store / Record Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/mac-miller-circles-vinyl-2lp-dia-than_ed6c462f3024466b90fcb04761df4ce0_grande.jpg'),
+(83, 'LITTLE MIX - LM5 ', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-12-12 13:48:36', '3e7awlrlDSwF3iM0WBjGMp\r\n', 198, 350000, 350000, 'Little Mix - LM5 - Đĩa CD - Hãng Đĩa Thời Đại (Times Records) - Cửa hàng băng đĩa gốc nhạc quốc tế ⭕️ CD Store in Saigon  ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/little-mix-lm5-dia-cd_353685b38bd04d7f98f3282c5f9ee001_grande.jpeg'),
 (84, 'THE LUMINEERS - THE LUMINEERS ', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-11-27 13:01:46', '16oZKvXb6WkQlVAjwo2Wbg\r\n', 120, 350000, 350000, 'The Lumineers - The Lumineers - Đĩa CD - Hãng Đĩa Thời Đại (Times Records) - Cửa hàng băng đĩa gốc nhạc quốc tế ⭕️ CD Store in Saigon  ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/the-lumineers-the-lumineers-dia-cd_0e6ff3a43c0240cd9904c666a7bc4ba5_grande.jpeg'),
 (85, 'PHẠM QUỲNH ANH - LỜI HỒI ĐÁP 2008 (E.P) ', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-11-27 13:01:35', '033tY0EKEVdDtzoeEMMCJC\r\n', 545, 250000, 250000, 'Phạm Quỳnh Anh - Lời Hồi Đáp 2008 (E.P) - Đĩa CD - Hãng Đĩa Thời Đại (Times Records)  ⭕️ CD Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038. Dự kiến sẽ phát hành vào 14/11/2023.', 'https://product.hstatic.net/1000304920/product/pham-quynh-anh-loi-hoi-dap-2008-e-p-dia-cd_3dca9a5d31d94f6e89e27fc9adeb2597_grande.jpg'),
 (86, 'THE LUKA PROJECT - THE LUKA PROJECT ', 'Đĩa CD', 1, '2023-11-27 12:03:37', '2023-11-27 13:01:24', '3rSWgrxSPaAF9em4VEe8GD\r\n', 300, 350000, 350000, 'The Luka Project - The Luka Project - Đĩa CD: Ấn bản vật lý của album phòng thu đầu tay cùng tên của The Luka Project (một nghệ danh của Thành Luke)', 'https://product.hstatic.net/1000304920/product/20231110_the-luka-project_poster_cd_02_b99029f3c7224ef78cc6013b411d141c_grande.jpg'),
@@ -268,7 +235,7 @@ INSERT INTO `album_physicals` (`album_physi_id`, `album_name`, `type`, `user_id`
 (104, 'BONEY M. - RIVERS OF BABYLON ', 'Đĩa CD', 1, '2023-11-27 12:03:38', '2023-11-27 12:54:47', '54R6Y0I7jGUCveDTtI21nb\r\n', 250, 290000, 290000, 'Boney M. - Rivers of Babylon - Đĩa CD - Hãng Đĩa Thời Đại (Times Records)  ⭕️ CD Store in Saigon - Ho Chi Minh City Vietnam ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/boney-m-rivers-of-babylon-dia-cd_98addb0b820645dd815c1733622f87dd_grande.jpg'),
 (105, 'TLINH - \"ÁI\" ALBUM (STANDARD VER.) ', 'Đĩa CD', 1, '2023-11-27 12:03:38', '2023-11-27 12:54:32', '3diftVOq7aEIebXKkC34oR\r\n', 550, 300000, 300000, 'tlinh - \"ái\" album (Standard Ver.): Ấn bản vật lý của album phòng thu đầu tay của tlinh do Ais Label & Hãng Đĩa Thời Đại sản xuất dự kiến sẽ phát hành vào trung tuần tháng 09/2023.', 'https://product.hstatic.net/1000304920/product/1_7ab514a9f6a34536890cc20fe7aa4327_grande.jpg'),
 (106, 'THIỀU BẢO TRÂM - CHẮC ANH CÓ NỖI KHỔ TÂM (SINGLE) -', 'Đĩa CD', 1, '2023-11-27 12:03:38', '2023-11-27 12:54:19', '6RUfMGubOnHT1p3nfeXpBl\r\n', 333, 180000, 180000, 'THIỀU BẢO TRÂM <CHẮC ANH CÓ NỖI KHỔ TÂM> CD SINGLE\r\n📍 Audio & MV: 20.08.2023  |  19:00\r\n💿 CD Single: 26.08.2023', 'https://product.hstatic.net/1000304920/product/thieu-bao-tram_chac-anh-co-noi-kho-tam-cd-single_fadd37c4ff75431eafdefd9fea91b0da_grande.jpg'),
-(107, 'HOÀNG THUỲ LINH - LINK ', 'Băng Cassette', 1, '2023-11-27 12:03:39', '2023-12-03 08:08:23', '0r63ReVRjxrS4ATbLrdcrL\r\n', 798, 350000, 450000, 'Hoàng Thuỳ Linh - LINK (A Side B Side Colored Gatefold Vinyl LP) - Đĩa Than Nhạc Việt - Hãng Đĩa Thời Đại (Times Records) ⭕️ Saigon Vinyl Records Store in Vietnam / LP Store  ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/hoang-thuy-linh-link-a-side-b-side-colored-gatefold-vinyl-lp-dia-than_ea3addf35b364b3aabde812c2a4c17e7_grande.jpg');
+(107, 'HOÀNG THUỲ LINH - LINK ', 'Băng Cassette', 1, '2023-11-27 12:03:39', '2023-12-17 05:14:56', '0r63ReVRjxrS4ATbLrdcrL\r\n', 778, 350000, 450000, 'Hoàng Thuỳ Linh - LINK (A Side B Side Colored Gatefold Vinyl LP) - Đĩa Than Nhạc Việt - Hãng Đĩa Thời Đại (Times Records) ⭕️ Saigon Vinyl Records Store in Vietnam / LP Store  ⭕️ Hotline: 0903.088.038', 'https://product.hstatic.net/1000304920/product/hoang-thuy-linh-link-a-side-b-side-colored-gatefold-vinyl-lp-dia-than_ea3addf35b364b3aabde812c2a4c17e7_grande.jpg');
 
 -- --------------------------------------------------------
 
@@ -291,7 +258,7 @@ CREATE TABLE `album_physical_details` (
 --
 
 INSERT INTO `album_physical_details` (`id`, `album_physi_id`, `variant_name`, `stock_quantity`, `variant_price`, `created_at`, `updated_at`) VALUES
-(5, 107, 'Platinum Silver Version', 198, 450000, '2023-12-03 08:08:23', '2023-12-03 01:08:23'),
+(5, 107, 'Platinum Silver Version', 178, 450000, '2023-12-17 05:14:56', '2023-12-17 05:14:56'),
 (6, 107, 'Special Gold Version', 200, 450000, '2023-11-27 12:24:58', '2023-11-27 12:24:58'),
 (7, 107, 'Burnt Orange', 200, 350000, '2023-11-27 12:24:58', '2023-11-27 12:24:58'),
 (8, 107, 'Rufous Red', 200, 350000, '2023-11-27 12:24:58', '2023-11-27 12:24:58');
@@ -416,104 +383,42 @@ INSERT INTO `histories` (`id`, `song_id`, `user_id`, `updated_at`, `created_at`)
 (2, '5106KTen3ogiqKTYXnPbsW', '1', '2023-11-19 17:00:00', '2023-11-20 05:39:59'),
 (3, '2KN0NNlxStccgt4GGtOmxk', '1', '2023-11-18 17:00:00', '2023-11-20 05:39:59'),
 (4, '3QD2NfLEIvMRbzv2uTu4B7', '1', '2023-11-20 23:04:55', '2023-11-20 05:39:59'),
-(5, '1xoadYaxtOp9gHDwgmPDuz', '1', '2023-11-23 07:35:37', '2023-11-20 05:39:59'),
-(6, '1MiJk3dXC5jzhvLFP0dUM7', '1', '2023-11-23 10:24:49', '2023-11-20 05:39:59'),
+(5, '1xoadYaxtOp9gHDwgmPDuz', '1', '2023-11-20 10:35:35', '2023-11-20 05:39:59'),
+(6, '1MiJk3dXC5jzhvLFP0dUM7', '1', '2023-11-19 23:23:44', '2023-11-20 05:39:59'),
 (77, '2N0SPREDYqILVEFSsWF5N5', '1', '2023-11-20 14:39:13', '2023-11-19 23:30:11'),
 (78, '3Ua0m0YmEjrMi9XErKcNiR', '1', '2023-11-20 15:10:43', '2023-11-19 23:35:13'),
-(79, '3un8UkiPHJjlsrTHQnisXH', '1', '2023-11-23 23:57:46', '2023-11-20 06:38:29'),
+(79, '3un8UkiPHJjlsrTHQnisXH', '2', '2023-12-18 04:13:07', '2023-11-20 06:38:29'),
 (80, '0lizgQ7Qw35od7CYaoMBZb', '1', '2023-11-21 10:22:03', '2023-11-20 08:01:43'),
-(81, '6KgZf5gZgF1KLNxq1qZgHP', '1', '2023-11-23 10:24:55', '2023-11-20 18:07:03'),
-(82, '3rUGC1vUpkDG9CZFHMur1t', '1', '2023-11-23 02:43:35', '2023-11-20 18:18:31'),
-(83, '4xhsWYTOGcal8zt0J161CU', '1', '2023-11-23 02:42:06', '2023-11-20 18:20:43'),
-(84, '4CljUDO1I5hpKjwSNK6RWY', '1', '2023-11-23 02:04:55', '2023-11-20 18:23:02'),
-(85, '5J3m0taZ0W1E9HTE0MwcSv', '1', '2023-11-23 10:29:50', '2023-11-20 20:32:28'),
-(86, '4W4fNrZYkobj539TOWsLO2', '1', '2023-11-24 01:27:19', '2023-11-20 20:43:21'),
-(87, '2JuHIbFudHwDqQssgqsH3i', '1', '2023-11-23 23:57:53', '2023-11-20 20:44:13'),
+(81, '6KgZf5gZgF1KLNxq1qZgHP', '1', '2023-11-20 15:08:08', '2023-11-20 18:07:03'),
+(82, '3rUGC1vUpkDG9CZFHMur1t', '1', '2023-11-20 11:18:31', '2023-11-20 18:18:31'),
+(83, '4xhsWYTOGcal8zt0J161CU', '1', '2023-11-20 11:20:43', '2023-11-20 18:20:43'),
+(84, '4CljUDO1I5hpKjwSNK6RWY', '1', '2023-11-20 11:23:02', '2023-11-20 18:23:02'),
+(85, '5J3m0taZ0W1E9HTE0MwcSv', '1', '2023-11-21 21:15:16', '2023-11-20 20:32:28'),
+(86, '4W4fNrZYkobj539TOWsLO2', '1', '2023-11-20 13:43:21', '2023-11-20 20:43:21'),
+(87, '2JuHIbFudHwDqQssgqsH3i', '1', '2023-11-20 15:13:51', '2023-11-20 20:44:13'),
 (88, '5cF0dROlMOK5uNZtivgu50', '1', '2023-11-22 06:47:38', '2023-11-20 20:46:16'),
 (89, '5Odq8ohlgIbQKMZivbWkEo', '1', '2023-11-20 13:50:32', '2023-11-20 20:49:45'),
-(90, '2doGmsaPLdot51o80juiYU', '1', '2023-11-23 10:29:38', '2023-11-20 20:50:54'),
-(91, '7D9tiidrBDQRgCENeIhko0', '1', '2023-11-23 10:35:03', '2023-11-20 20:51:41'),
-(92, '4jWmhzf53Q0ZvZMuGdiR9x', '1', '2023-11-23 10:29:49', '2023-11-20 20:52:04'),
+(90, '2doGmsaPLdot51o80juiYU', '1', '2023-11-20 13:50:54', '2023-11-20 20:50:54'),
+(91, '7D9tiidrBDQRgCENeIhko0', '1', '2023-11-20 13:51:41', '2023-11-20 20:51:41'),
+(92, '4jWmhzf53Q0ZvZMuGdiR9x', '1', '2023-11-20 15:09:13', '2023-11-20 20:52:04'),
 (93, '7mA9oPfWSMXKOdPZqyow55', '1', '2023-11-20 13:52:14', '2023-11-20 20:52:14'),
 (94, '45Mswno1F7FoZkcmQkp7fi', '1', '2023-11-20 13:54:30', '2023-11-20 20:54:30'),
 (95, '29WxJqIfDRMo9isV07kbJP', '1', '2023-11-20 14:09:42', '2023-11-20 21:05:23'),
-(96, '210JJAa9nJOgNa0YNrsT5g', '2', '2023-11-23 11:25:16', '2023-11-20 21:06:43'),
+(96, '210JJAa9nJOgNa0YNrsT5g', '1', '2023-11-20 14:10:04', '2023-11-20 21:06:43'),
 (97, '2KslE17cAJNHTsI2MI0jb2', '1', '2023-11-21 22:45:27', '2023-11-20 21:29:02'),
 (98, '2HRgqmZQC0MC7GeNuDIXHN', '1', '2023-11-20 14:30:04', '2023-11-20 21:30:01'),
-(99, '0kHgteR4TV4LO80wrasDSR', '1', '2023-11-23 10:29:25', '2023-11-20 21:57:52'),
-(100, '4CUvVaAYuXtvYURLFz7EIL', '1', '2023-11-23 07:40:30', '2023-11-20 22:08:56'),
-(101, '4acXEYw7ayyJnm9GXDrqiL', '1', '2023-11-23 23:58:20', '2023-11-20 22:09:27'),
-(102, '1BxfuPKGuaTgP7aM0Bbdwr', '1', '2023-11-23 05:44:29', '2023-11-20 22:09:55'),
+(99, '0kHgteR4TV4LO80wrasDSR', '1', '2023-11-20 15:12:18', '2023-11-20 21:57:52'),
+(100, '4CUvVaAYuXtvYURLFz7EIL', '1', '2023-11-20 15:08:59', '2023-11-20 22:08:56'),
+(101, '4acXEYw7ayyJnm9GXDrqiL', '1', '2023-11-20 15:15:13', '2023-11-20 22:09:27'),
+(102, '1BxfuPKGuaTgP7aM0Bbdwr', '1', '2023-11-21 10:20:49', '2023-11-20 22:09:55'),
 (103, '5odlY52u43F5BjByhxg7wg', '1', '2023-11-20 23:02:16', '2023-11-21 06:02:15'),
 (104, '0SLhB9JLM4Ksz1XdwK3aQD', '1', '2023-11-21 01:24:05', '2023-11-21 08:22:35'),
 (105, '0ZP4bO2ywAv44HiEzzHaq5', '1', '2023-11-21 08:01:33', '2023-11-21 15:01:34'),
-(106, '3i6VNcn9dFpU1K2ZaMFHTC', '1', '2023-11-23 10:29:29', '2023-11-23 07:53:18'),
-(107, '07tiPBhMqiKqHowwqDBtfK', '1', '2023-11-23 10:30:00', '2023-11-23 07:53:22'),
-(108, '6xXCn7H2Yl8SDD6jxo5SpN', '1', '2023-11-23 10:29:50', '2023-11-23 07:56:06'),
-(109, '4OMJGnvZfDvsePyCwRGO7X', '1', '2023-11-23 01:03:55', '2023-11-23 08:03:55'),
-(110, '7dJYggqjKo71KI9sLzqCs8', '1', '2023-11-23 01:47:24', '2023-11-23 08:03:57'),
-(111, '5Se32hEA9raeboZerywxka', '1', '2023-11-23 02:42:01', '2023-11-23 08:06:07'),
-(112, '5SFCEkybGYmmzKqewtDEaN', '1', '2023-11-23 02:43:45', '2023-11-23 08:07:26'),
-(113, '5qbjUmVV1yOOjcMOInNPYD', '1', '2023-11-23 07:40:20', '2023-11-23 08:27:11'),
-(114, '0gzpqwLf1jhNjnSJEyweAX', '1', '2023-11-23 23:57:54', '2023-11-23 08:30:49'),
-(115, '05X3a0YGmS1rbH50aL8lGF', '1', '2023-11-23 10:24:50', '2023-11-23 08:34:39'),
-(116, '7tFwBnuaGXqiiONukPRaCo', '1', '2023-11-23 23:57:57', '2023-11-23 08:36:21'),
-(117, '5mjYQaktjmjcMKcUIcqz4s', '1', '2023-11-23 01:47:42', '2023-11-23 08:47:21'),
-(118, '1Iq8oo9XkmmvCQiGOfORiz', '1', '2023-11-23 01:48:04', '2023-11-23 08:48:04'),
-(119, '7uoFMmxln0GPXQ0AcCBXRq', '1', '2023-11-23 10:22:24', '2023-11-23 09:14:33'),
-(120, '45bE4HXI0AwGZXfZtMp8JR', '1', '2023-11-23 07:43:38', '2023-11-23 09:15:17'),
-(121, '5gzEL5O1ubbtIHUhLkSMTz', '1', '2023-11-23 02:42:16', '2023-11-23 09:22:42'),
-(122, '5FDc4ljIWyW8wClzt54dhs', '1', '2023-11-23 02:42:25', '2023-11-23 09:22:48'),
-(123, '6wsqVwoiVH2kde4k4KKAFU', '1', '2023-11-23 02:43:45', '2023-11-23 09:27:25'),
-(124, '2YSzYUF3jWqb9YP9VXmpjE', '1', '2023-11-23 02:27:32', '2023-11-23 09:27:31'),
-(125, '7aqfrAY2p9BUSiupwk3svU', '1', '2023-11-23 02:42:30', '2023-11-23 09:28:06'),
-(126, '0eO8MW9YSTK3CjdaTYKlhF', '1', '2023-11-23 02:43:20', '2023-11-23 09:28:11'),
-(127, '0zbGWzQkLY5wn4xyiLYEi0', '1', '2023-11-23 02:42:26', '2023-11-23 09:42:25'),
-(128, '2Gk6fi0dqt91NKvlzGsmm7', '1', '2023-11-23 02:43:08', '2023-11-23 09:43:08'),
-(129, '4367dXCt02KMgELPisJ2D4', '1', '2023-11-23 02:43:34', '2023-11-23 09:43:22'),
-(130, '0Qs29ApstkrU5T8S5Hxazw', '1', '2023-11-23 10:24:14', '2023-11-23 09:44:29'),
-(131, '6jcLKVmEKAQIXIVHJZ8vzS', '1', '2023-11-23 10:24:38', '2023-11-23 09:45:22'),
-(132, '5Um995yUx3GSJ6uNOMaaP4', '1', '2023-11-23 07:41:00', '2023-11-23 09:45:26'),
-(133, '6dRV27RhoSZxfLju2nKw3R', '1', '2023-11-23 10:22:24', '2023-11-23 09:48:28'),
-(134, '4pVdTj38qEwfPNjv1LYbu0', '1', '2023-11-23 02:48:46', '2023-11-23 09:48:46'),
-(135, '4YUiJ6Av2Hp1hiWE9eeAjO', '1', '2023-11-23 02:55:22', '2023-11-23 09:48:54'),
-(136, '0T5iIrXA4p5GsubkhuBIKV', '1', '2023-11-23 06:40:17', '2023-11-23 09:51:13'),
-(137, '3W4U7TEgILGpq0EmquurtH', '1', '2023-11-23 02:51:25', '2023-11-23 09:51:25'),
-(138, '0lx2cLdOt3piJbcaXIV74f', '1', '2023-11-23 07:44:00', '2023-11-23 09:51:26'),
-(139, '3FAJ6O0NOHQV8Mc5Ri6ENp', '1', '2023-11-23 05:55:14', '2023-11-23 09:51:31'),
-(140, '27Z9T0mSWHYWSj9SNOGvyt', '1', '2023-11-23 02:51:33', '2023-11-23 09:51:33'),
-(141, '3CyGK8BeJ5iCunpzvHyINs', '1', '2023-11-23 10:33:16', '2023-11-23 09:55:07'),
-(142, '1fh5Sf3fFESFOS8D82RQiI', '1', '2023-11-23 07:43:06', '2023-11-23 12:42:36'),
-(143, '25h0TqC9H3BcMA7KjK5nHK', '1', '2023-11-23 07:35:08', '2023-11-23 12:44:25'),
-(144, '5J90ah0ppUSev1uahqQiN6', '1', '2023-11-23 10:24:38', '2023-11-23 12:49:10'),
-(145, '4vKDkAtjNPvD3nSizQdyTk', '1', '2023-11-23 10:29:38', '2023-11-23 12:53:56'),
-(146, '6oBB4HhlDGK4TtCvb6iclJ', '1', '2023-11-23 06:04:51', '2023-11-23 12:55:01'),
-(147, '2bdVgAQgosGUJoViVDNeOV', '1', '2023-11-23 05:55:08', '2023-11-23 12:55:08'),
-(148, '4pvb0WLRcMtbPGmtejJJ6y', '1', '2023-11-23 05:55:38', '2023-11-23 12:55:39'),
-(149, '18uwL0vNUanqZH0ro2QcOP', '1', '2023-11-23 05:56:27', '2023-11-23 12:55:39'),
-(150, '3YctJXK6kznnWl68TnYobN', '1', '2023-11-23 07:35:19', '2023-11-23 12:56:42'),
-(151, '2cy0YoKwF55W5jL3VIzgm2', '1', '2023-11-23 07:35:30', '2023-11-23 12:56:48'),
-(152, '7bFFUPBiF15n8m8RziqS4o', '1', '2023-11-23 05:56:52', '2023-11-23 12:56:52'),
-(153, '4AgFXIVT7hVhBZ5DEOaLu3', '1', '2023-11-23 07:36:00', '2023-11-23 12:56:55'),
-(154, '0xi7bCx9m2rgPbCN6Xhlel', '1', '2023-11-23 07:35:43', '2023-11-23 12:57:03'),
-(155, '3kxFvcB92qQg9wl52CQ7aV', '1', '2023-11-23 07:13:14', '2023-11-23 14:13:14'),
-(156, '4ZOCzRRThD32cGu8aeqOBb', '1', '2023-11-23 07:16:34', '2023-11-23 14:16:32'),
-(157, '4Iz5EWPCAT8jYNk4IpLoll', '1', '2023-11-23 10:24:14', '2023-11-23 14:30:46'),
-(158, '5iZHnufFUgATzrpGgH1K0W', '1', '2023-11-23 10:24:45', '2023-11-23 14:30:52'),
-(159, '7AD5F85waSb3yZxZxEXhJM', '1', '2023-11-23 07:35:34', '2023-11-23 14:35:34'),
-(160, '11hcyWq7qSwBE3bvv5Ialn', '1', '2023-11-23 07:35:41', '2023-11-23 14:35:41'),
-(161, '3LfiZlWffAqGOAQ6sKjoJP', '1', '2023-11-23 07:35:44', '2023-11-23 14:35:44'),
-(162, '76dD9BdSOzsRJSGGBjOcUf', '1', '2023-11-23 07:35:47', '2023-11-23 14:35:47'),
-(163, '5BTzf3doGTigDIYUFtbkI9', '1', '2023-11-23 07:35:52', '2023-11-23 14:35:52'),
-(164, '6iXGivPFpsqKmrINhIbPvx', '1', '2023-11-23 07:38:06', '2023-11-23 14:36:07'),
-(165, '4Dvkj6JhhA12EX05fT7y2e', '1', '2023-11-23 07:50:21', '2023-11-23 14:50:20'),
-(166, '7wj9sGlHGTMQ28liyi48hz', '1', '2023-11-23 10:24:49', '2023-11-23 17:24:49'),
-(167, '7uMWQeSrwyvaSzFIme9iCG', '1', '2023-11-23 23:58:21', '2023-11-24 06:58:21'),
-(168, '048dxNqgKzQGMcyojw7zyp', '1', '2023-11-24 00:01:12', '2023-11-24 06:59:25'),
-(169, '1D9QWphMtRcxYybdzM6JUa', '1', '2023-11-24 00:01:12', '2023-11-24 07:01:12'),
-(170, '6TOI8hhlfebwsTYRCVpRMn', '1', '2023-11-24 00:01:14', '2023-11-24 07:01:14'),
-(171, '5TK00jepsIqLJbnnOrtjv1', '1', '2023-11-24 00:04:01', '2023-11-24 07:04:01'),
-(172, '2nFXaYb2fWOoUJXMPb6y4C', '1', '2023-11-24 01:10:58', '2023-11-24 07:04:06');
+(106, '3ZbZtdEw9U0uZW4tZItIwq', '0', '2023-12-18 03:55:08', '2023-12-18 03:52:28'),
+(107, '0LVCuBsPmGaYvGV3IOMXFy', '2', '2023-12-18 04:05:07', '2023-12-18 04:04:09'),
+(108, '180AbZduI6bYQIzwCHRwu9', '2', '2023-12-18 04:13:07', '2023-12-18 04:10:50'),
+(109, '1rO9az1C7u2RXUK0E9YfUi', '2', '2023-12-18 04:15:21', '2023-12-18 04:15:21'),
+(110, '6hShO2ZZ0bFO1SNfpfkHOD', '0', '2023-12-18 04:18:25', '2023-12-18 04:17:33');
 
 -- --------------------------------------------------------
 
@@ -537,9 +442,7 @@ INSERT INTO `liked_songs` (`id`, `song_id`, `user_id`, `created_at`, `updated_at
 (1, '3un8UkiPHJjlsrTHQnisXH', '1', '2023-11-20 19:46:03', '2023-11-20 19:46:03'),
 (2, '2KslE17cAJNHTsI2MI0jb2', '1', '2023-11-19 19:59:41', '2023-10-20 19:59:41'),
 (9, '4W4fNrZYkobj539TOWsLO2', '1', '2023-11-20 13:38:30', '2023-11-20 13:38:30'),
-(10, '5J3m0taZ0W1E9HTE0MwcSv', '1', '2023-11-20 13:39:10', '2023-11-20 13:39:10'),
-(11, '210JJAa9nJOgNa0YNrsT5g', '1', '2023-11-23 11:04:37', '2023-11-23 11:04:37'),
-(12, '210JJAa9nJOgNa0YNrsT5g', '2', '2023-11-23 11:05:30', '2023-11-23 11:05:30');
+(10, '5J3m0taZ0W1E9HTE0MwcSv', '1', '2023-11-20 13:39:10', '2023-11-20 13:39:10');
 
 -- --------------------------------------------------------
 
@@ -553,17 +456,19 @@ CREATE TABLE `playlists` (
   `user_id` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `song_id` varchar(255) DEFAULT NULL,
-  `picture` blob DEFAULT NULL
+  `song_id` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `playlists`
 --
 
-INSERT INTO `playlists` (`id`, `title_playlist`, `user_id`, `created_at`, `updated_at`, `song_id`, `picture`) VALUES
-(13, 'Your playlist', '1', '2023-11-23 20:26:02', '2023-11-26 13:20:34', NULL, 0x75706c6f6164732f37653337383766306463316132396337393363363532373661326665653562382e6a7067),
-(14, 'Christmas', '1', '2023-11-23 20:32:45', '2023-11-28 17:52:55', '4W4fNrZYkobj539TOWsLO2,6TOI8hhlfebwsTYRCVpRMn,5J3m0taZ0W1E9HTE0MwcSv', 0x7075626c69632f75706c6f6164732f37653337383766306463316132396337393363363532373661326665653562382e6a7067);
+INSERT INTO `playlists` (`id`, `title_playlist`, `user_id`, `created_at`, `updated_at`, `song_id`) VALUES
+(1, 'Christmas', '2', '2023-12-18 05:34:26', '2023-12-18 08:34:46', '180AbZduI6bYQIzwCHRwu9'),
+(2, 'Your playlist', '2', '2023-12-20 03:16:26', '2023-12-20 03:16:26', NULL),
+(3, 'Your playlist', '2', '2023-12-20 03:17:58', '2023-12-20 03:17:58', NULL),
+(4, 'Your playlist', '2', '2023-12-20 03:20:14', '2023-12-20 03:20:14', NULL),
+(5, 'Your playlist', '2', '2023-12-20 03:21:35', '2023-12-20 03:21:35', NULL);
 
 -- --------------------------------------------------------
 
@@ -595,7 +500,7 @@ CREATE TABLE `users` (
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   `date_of_birth` date DEFAULT NULL,
-  `contact_number` varchar(20) DEFAULT NULL,
+  `contact_number` varchar(30) DEFAULT NULL,
   `email_address` varchar(255) DEFAULT NULL,
   `email_confirmed` int(11) DEFAULT NULL,
   `accountTypeID` int(11) DEFAULT NULL,
@@ -611,23 +516,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `date_of_birth`, `contact_number`, `email_address`, `email_confirmed`, `accountTypeID`, `accountStatusID`, `username`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'Nguyen', 'Binh', '2016-11-23', '0123456789', 'nguyen@gmail.com', 1, 4, 2, 'nguyen', '123456', '2023-11-23 06:56:37', '2023-12-05 03:21:57'),
-(2, 'John', 'Smith', '2000-11-12', '01943752', 'john@gmail.com', 1, 3, 2, 'test', '123456', '2023-11-23 06:56:37', '2023-12-04 05:15:51'),
-(3, 'Man', 'Gia', '2002-11-12', '012345678', '21521115@gm.uit.edu.vn', 1, 3, 2, 'mann312', '123456', '2023-11-23 21:17:12', '2023-12-04 05:15:55'),
-(5, 'Lê', 'Quỳnh', '1990-01-01', '0987654321', 'quynhlx@gmail.com', 1, 1, 3, 'quynhlx', 'userpasswo', '2023-12-02 10:00:00', '2023-12-04 05:15:57'),
-(6, 'Nguyễn', 'Hằng', '1992-02-02', '0123456789', 'hangnt@gmail.com', 1, 1, 4, 'hangnt', 'userpasswo', '2023-12-02 10:00:00', '2023-12-04 05:16:02'),
-(7, 'Trần', 'Đức', '1994-03-03', '0987654321', 'ducvt@gmail.com', 1, 1, 1, 'ducvt', 'userpasswo', '2023-12-02 10:00:00', '2023-12-03 01:10:02'),
-(8, 'Nguyễn', 'Hương', '1990-01-01', '0901234567', 'nguyenvana@gmail.com', 1, 1, 4, 'nguyenvana', 'password12', '2023-11-30 19:30:00', '2023-12-04 05:19:37'),
-(9, 'Lê', 'Xuân Quỳnh', '1991-02-02', '0912345678', 'nguyenvanb@gmail.com', 1, 1, 2, 'nguyenvanb', 'password45', '2023-12-02 00:45:00', '2023-12-04 05:20:03'),
-(10, 'Vương', 'Văn', '1992-03-03', '0923456789', 'nguyenvanc@gmail.com', 1, 1, 1, 'nguyenvanc', 'password78', '2023-12-03 06:15:00', '2023-12-03 06:15:00'),
-(11, 'Nguyễn', 'Hà', '1993-04-04', '0934567890', 'nguyenvand@gmail.com', 1, 1, 1, 'nguyenvand', 'passwordab', '2023-12-03 22:00:00', '2023-12-03 22:00:00'),
-(12, 'Nguyễn', 'Bình', '1994-05-05', '0945678901', 'nguyenvane@gmail.com', 1, 1, 1, 'nguyenvane', 'passwordde', '2023-12-05 04:20:00', '2023-12-05 04:20:00'),
-(13, 'Nguyễn', 'Thắng', '1995-06-06', '0956789012', 'nguyenvanf@gmail.com', 1, 1, 1, 'nguyenvanf', 'passwordgh', '2023-12-05 17:10:00', '2023-12-05 17:10:00'),
-(14, 'Nguyễn', 'Hữu Thắng', '1996-07-07', '0967890123', 'nguyenvang@gmail.com', 1, 1, 1, 'nguyenvang', 'passwordjk', '2023-12-07 01:50:00', '2023-12-07 01:50:00'),
-(15, 'Nguyễn', 'Nguyên Hà', '1997-08-08', '0978901234', 'nguyenvanh@gmail.com', 1, 1, 1, 'nguyenvanh', 'passwordmn', '2023-12-07 20:25:00', '2023-12-07 20:25:00'),
-(16, 'Nguyễn', 'Mỹ Linh', '1998-09-09', '0989012345', 'nguyenvani@gmail.com', 1, 1, 1, 'nguyenvani', 'passwordpq', '2023-12-09 02:40:00', '2023-12-09 02:40:00'),
-(17, 'Ninh', 'Dương Lan Ngọc', '1999-10-10', '0990123456', 'nguyenvanj@gmail.com', 1, 1, 1, 'nguyenvanj', 'passwordst', '2023-12-09 21:55:00', '2023-12-09 21:55:00'),
-(18, 'Man', 'Gia', '0000-00-00', '902999472', 'manlun0902@gmail.com', 1, 2, 1, 'mannn', '123456', '2023-12-04 04:23:57', '2023-12-04 04:23:57');
+(1, 'Nguyen', 'Binh', '2016-11-23', '0123456789', 'nguyen@gmail.com', 1, 4, 1, 'nguyen', '123456', '2023-11-23 06:56:37', '2023-12-11 11:21:22'),
+(2, 'John', 'Smith', '2000-11-12', '01943752', 'john@gmail.com', 1, 1, 1, 'test', '123456', '2023-11-23 06:56:37', '2023-11-23 07:22:33'),
+(3, 'Nguyên', 'Nguyễn', '2002-11-11', '0123456789', 'nbnguyen1100@gmail.com', 1, 1, 1, 'Nguyên', 'google', '2023-12-07 18:16:10', '2023-12-16 13:39:11'),
+(8, NULL, NULL, NULL, NULL, 'nguyen00@gmail.com', NULL, 1, 1, NULL, NULL, '2023-12-12 14:02:03', '2023-12-12 14:02:03'),
+(9, NULL, NULL, NULL, NULL, 'manlun0902@gmail.com', NULL, 1, 1, 'mannn', '123456', '2023-12-19 10:16:32', '2023-12-19 10:16:32'),
+(10, NULL, NULL, NULL, NULL, 'manlun090245@gmail.com', NULL, 1, 1, 'mann111', 'ascvb', '2023-12-19 10:20:03', '2023-12-19 10:20:03');
 
 --
 -- Indexes for dumped tables
@@ -644,6 +538,13 @@ ALTER TABLE `account_status`
 --
 ALTER TABLE `account_types`
   ADD PRIMARY KEY (`account_type_id`);
+
+--
+-- Indexes for table `album_orders`
+--
+ALTER TABLE `album_orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `FK_User_Order` (`cust_id`);
 
 --
 -- Indexes for table `album_order_details`
@@ -710,10 +611,112 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `account_status`
+--
+ALTER TABLE `account_status`
+  MODIFY `account_status_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `account_types`
+--
+ALTER TABLE `account_types`
+  MODIFY `account_type_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `album_orders`
+--
+ALTER TABLE `album_orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
+--
 -- AUTO_INCREMENT for table `album_order_details`
 --
 ALTER TABLE `album_order_details`
-  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+
+--
+-- AUTO_INCREMENT for table `album_physicals`
+--
+ALTER TABLE `album_physicals`
+  MODIFY `album_physi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+
+--
+-- AUTO_INCREMENT for table `album_physical_details`
+--
+ALTER TABLE `album_physical_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `favorites`
+--
+ALTER TABLE `favorites`
+  MODIFY `favorite_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `followed_artists`
+--
+ALTER TABLE `followed_artists`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `histories`
+--
+ALTER TABLE `histories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+
+--
+-- AUTO_INCREMENT for table `liked_songs`
+--
+ALTER TABLE `liked_songs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `playlists`
+--
+ALTER TABLE `playlists`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `album_orders`
+--
+ALTER TABLE `album_orders`
+  ADD CONSTRAINT `FK_User_Order` FOREIGN KEY (`cust_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `album_order_details`
+--
+ALTER TABLE `album_order_details`
+  ADD CONSTRAINT `FK_Order_Album` FOREIGN KEY (`album_physi_id`) REFERENCES `album_physicals` (`album_physi_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `PK_Order_Detail` FOREIGN KEY (`order_id`) REFERENCES `album_orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `album_physicals`
+--
+ALTER TABLE `album_physicals`
+  ADD CONSTRAINT `FK_User_Album` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `album_physical_details`
+--
+ALTER TABLE `album_physical_details`
+  ADD CONSTRAINT `FK_Album` FOREIGN KEY (`album_physi_id`) REFERENCES `album_physicals` (`album_physi_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `PK_Account_Status` FOREIGN KEY (`accountStatusID`) REFERENCES `account_status` (`account_status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `PK_Account_Type` FOREIGN KEY (`accountTypeID`) REFERENCES `account_types` (`account_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
