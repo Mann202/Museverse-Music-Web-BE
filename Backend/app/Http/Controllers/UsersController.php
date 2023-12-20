@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Users;
 use Illuminate\Support\Facades\Hash;
 use function Laravel\Prompts\password;
-
+use Carbon\Carbon;
 class UsersController extends Controller
 {
     private $token_url = 'https://open.spotify.com/get_access_token?reason=transport&productType=web_player';
@@ -98,10 +98,22 @@ class UsersController extends Controller
     public function userUpdate(Request $request, string $userId)
     {
         $data = $request->only(['first_name', 'last_name', 'date_of_birth','contact_number']);
+
+        if (!empty($data['contact_number']) && (strlen($data['contact_number']) !== 10 || !is_numeric($data['contact_number']))) {
+            return response()->json('Số điện thoại không hợp lệ', 400);
+        }
+
         $user = Users::query()->find($userId);
         if (empty($user)) {
-            return response()->json('Lỗi', 500);
+            return response()->json('Không thành công', 500);
         }
+
+        $dateOfBirth = Carbon::parse($data['date_of_birth']);
+        $today = Carbon::today();
+        if ($dateOfBirth->isFuture($today)) {
+            return response()->json('Ngày sinh không hợp lệ', 400);
+        }
+
         $user->update($data);
         return response()->json('Thành công');
     }
