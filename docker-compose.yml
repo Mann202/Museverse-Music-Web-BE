@@ -40,7 +40,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     volumes:
       - ./mysql:/docker-entrypoint-initdb.d
-      - ./dbdata:/var/lib/mysql
+      - dbdata:/var/lib/mysql
     networks:
       - museverse
 
@@ -53,8 +53,8 @@ services:
       PMA_HOSTS: ${DB_HOST:-mysql}
       PMA_PORT: ${DB_PORT:-3307}
       # uncomment 2 lines under for auto-login in phpmyadmin
-      PMA_USER: ${DB_USERNAME}
-      PMA_PASSWORD: ${DB_PASSWORD}
+      # PMA_USER: ${DB_USERNAME}
+      # PMA_PASSWORD: ${DB_PASSWORD}
     networks:
       - museverse
 
@@ -64,4 +64,3 @@ networks:
 
 volumes:
   dbdata:
-    driver: local
