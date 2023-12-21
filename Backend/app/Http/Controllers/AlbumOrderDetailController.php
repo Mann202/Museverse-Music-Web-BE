@@ -100,8 +100,8 @@ class AlbumOrderDetailController extends Controller
             $user = new Users;
             $user->email_address = $req->input('email');
             $user->username = $req->input('username');
-            $user->lastname = $req->input('lastname');
-            $user->firstname = $req->input('firstname');
+            $user->last_name = $req->input('lastname');
+            $user->first_name = $req->input('firstname');
             $user->password = $req->input('password');
             $user->accountTypeID = 4;
             $user->accountStatusID = 1;
@@ -122,8 +122,8 @@ class AlbumOrderDetailController extends Controller
             $user = new Users;
             $user->email_address = $req->input('email');
             $user->username = $req->input('username');
-            $user->lastname = $req->input('lastname');
-            $user->firstname = $req->input('firstname');
+            $user->last_name = $req->input('lastname');
+            $user->first_name = $req->input('firstname');
             $user->password = $req->input('password');
             $user->accountTypeID = 1;
             $user->accountStatusID = 1;
