@@ -23,6 +23,7 @@ class PlaylistsController extends Controller
         $title = $req->input("title");
 
         $userPlaylist = new Playlists();
+        $userPlaylist->id = $id;
         $userPlaylist->user_id = $user_id;
         $userPlaylist->title_playlist = $title;
         $userPlaylist->save();
@@ -134,5 +135,10 @@ class PlaylistsController extends Controller
         if($playlist) {
             $playlist->delete();
         }
+    }
+
+    function getNewestPlaylistID(Request $req) {
+        $playlistID =  Playlists::orderBy('created_at', 'desc')->first();
+        return $playlistID;
     }
 }

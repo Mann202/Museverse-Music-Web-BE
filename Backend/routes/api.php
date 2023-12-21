@@ -103,3 +103,5 @@ Route::post('updatePremium', [UsersController::class, 'updatePremium']);
 Route::post('getPaymentLinkInfoOfOrder/{id}', [OrderController::class, 'getPaymentLinkInfoOfOrder']);
 
 Route::get('report/user', [\App\Http\Controllers\ReportController::class, 'reportUser']);
+
+Route::get('getNewestPlaylistID', [PlaylistsController::class, 'getNewestPlaylistID']);
